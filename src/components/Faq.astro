@@ -1,0 +1,98 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const faqs = [
+  {
+    id: 'faq-1',
+    question: t('faq.questions.q1'),
+    answer: t('faq.answers.a1')
+  },
+  {
+    id: 'faq-2',
+    question: t('faq.questions.q2'),
+    answer: t('faq.answers.a2')
+  },
+  {
+    id: 'faq-3',
+    question: t('faq.questions.q3'),
+    answer: t('faq.answers.a3')
+  },
+  {
+    id: 'faq-4',
+    question: t('faq.questions.q4'),
+    answer: t('faq.answers.a4')
+  },
+  {
+    id: 'faq-5',
+    question: t('faq.questions.q5'),
+    answer: t('faq.answers.a5')
+  }
+];
+---
+
+<section id="faq" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="section-tag">{t('faq.tag')}</span>
+      <h2 class="section-title">{t('faq.title')}</h2>
+      <p class="section-subtitle">{t('faq.subtitle')}</p>
+    </div>
+    
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-4">
+        {faqs.map(faq => (
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <button
+              id={`${faq.id}-header`}
+              class="faq-header w-full flex justify-between items-center p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50"
+              aria-expanded="false"
+              aria-controls={`${faq.id}-body`}
+            >
+              <span class="font-semibold text-gray-800">{faq.question}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary-500 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+            </button>
+            <div
+              id={`${faq.id}-body`}
+              role="region"
+              aria-labelledby={`${faq.id}-header`}
+              class="faq-body hidden px-6 pb-6"
+            >
+              <p class="text-gray-600">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // FAQ Accordion functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqHeaders = document.querySelectorAll('.faq-header');
+    
+    faqHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const body = document.getElementById(header.getAttribute('aria-controls'));
+        const icon = header.querySelector('.faq-icon');
+        const isExpanded = header.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle current FAQ item
+        header.setAttribute('aria-expanded', !isExpanded);
+        body.classList.toggle('hidden', isExpanded);
+        
+        // Change icon
+        if (isExpanded) {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />';
+        } else {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />';
+        }
+      });
+    });
+  });
+</script>

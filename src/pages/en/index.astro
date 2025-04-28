@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import CourseOverview from "../../components/CourseOverview.astro";
+import CourseObjectives from "../../components/CourseObjectives.astro";
+import CourseContent from "../../components/CourseContent.astro";
+import CourseDetails from "../../components/CourseDetails.astro";
+import CtaSection from "../../components/CtaSection.astro";
+import Faq from "../../components/Faq.astro";
+
+// SEO configuration
+const title = "DeSci Quark - Blockchain for Scientists using Cardano";
+const description = "Free course designed to introduce scientists and academics with no prior blockchain experience to the DeSci ecosystem through Cardano.";
+---
+
+<BaseLayout title={title} description={description}>
+  <HeroSection />
+  <CourseOverview />
+  <CourseObjectives />
+  <CourseContent />
+  <CourseDetails />
+  <Faq />
+  <CtaSection />
+</BaseLayout>

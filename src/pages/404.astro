@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// SEO
+const title = lang === "en" ? "Page Not Found - DeSci Quark" : "Página No Encontrada - DeSci Quark";
+const description = lang === "en" 
+  ? "The page you are looking for does not exist or has been moved."
+  : "La página que estás buscando no existe o ha sido movida.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-20 min-h-[70vh] flex items-center">
+    <div class="container mx-auto px-4 text-center">
+      <div class="glass-card max-w-lg mx-auto py-12 px-8">
+        <div class="mb-8">
+          <span class="text-9xl font-bold blue-text-gradient">404</span>
+        </div>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+          {lang === "en" ? "Page Not Found" : "Página No Encontrada"}
+        </h1>
+        <p class="text-gray-600 dark:text-gray-300 mb-8">
+          {lang === "en" 
+            ? "The page you are looking for does not exist or has been moved."
+            : "La página que estás buscando no existe o ha sido movida."}
+        </p>
+        <a href={lang === "en" ? "/en/" : "/"} class="btn btn-primary">
+          {lang === "en" ? "Back to Home" : "Volver al Inicio"}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

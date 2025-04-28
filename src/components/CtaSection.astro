@@ -1,0 +1,25 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="py-16 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
+  <div class="container mx-auto px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        {lang === 'en' ? 'Ready to start your DeSci journey?' : '¿Listo para comenzar tu viaje en DeSci?'}
+      </h2>
+      <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+        {lang === 'en' 
+          ? 'Join our free course and learn how blockchain and Cardano can transform scientific research. Pre-register now to secure your spot!' 
+          : 'Únete a nuestro curso gratuito y aprende cómo blockchain y Cardano pueden transformar la investigación científica. ¡Pre-regístrate ahora para asegurar tu lugar!'}
+      </p>
+      
+      <button id="openModalBtn" class="btn bg-white text-primary-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        {lang === 'en' ? 'Pre-register Now' : 'Pre-regístrate Ahora'}
+      </button>
+    </div>
+  </div>
+</section>

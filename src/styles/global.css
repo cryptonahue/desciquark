@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Variables CSS para glassmorphism */
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(200, 225, 255, 0.3);
+    --glass-blur: 12px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    color: #1a202c;
+  }
+}
+
+@layer components {
+  /* Componente glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Botones redondeados */
+  .btn {
+    @apply py-3 px-6 font-medium rounded-full transition-all duration-300 inline-block text-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white shadow-sm hover:shadow-md;
+  }
+  
+  /* Contenedores bento */
+  .bento-grid {
+    @apply grid gap-4 md:gap-6;
+  }
+  
+  .bento-card {
+    @apply rounded-2xl p-6 bg-white shadow-md border border-gray-100;
+  }
+  
+  .glass-card {
+    @apply rounded-2xl p-6 glass shadow-lg;
+  }
+  
+  /* Efectos de gradiente */
+  .blue-gradient {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-600;
+  }
+  
+  .blue-text-gradient {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent;
+  }
+
+  /* Encabezados de sección */
+  .section-title {
+    @apply text-3xl font-bold text-gray-800 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-gray-600 max-w-3xl mx-auto mb-10;
+  }
+
+  .section-tag {
+    @apply bg-blue-50 text-primary-600 text-sm font-medium py-1 px-3 rounded-full mb-2 inline-block;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Estilos para componentes específicos */
+.hero-section {
+  background: linear-gradient(135deg, #3399FF 0%, #0066E5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/images/grid-pattern.svg');
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Estilos para los acordeones */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-body.open {
+  max-height: 1000px;
+}
+
+/* Estilos para el FAQ */
+.faq-icon {
+  transition: transform 0.3s ease;
+}
