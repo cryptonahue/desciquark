@@ -1,0 +1,61 @@
+# Archivos y carpetas generados por Astro
+dist/
+.output/
+.astro/
+
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Archivos de entorno
+.env
+.env.production
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Directorios de editores
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.history/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos de cache
+.npm
+.eslintcache
+.stylelintcache
+.temp
+.cache
+
+# Archivos temporales
+tmp/
+temp/
+
+# Archivos generados automáticamente
+.vercel
+.netlify
+.turbo
+
+# Archivos de testing
+coverage/
