@@ -223,6 +223,11 @@ export const ui = {
       faq: 'Preguntas Frecuentes',
       followUs: 'Síguenos',
       copyright: '© 2025 DeSci Quark Development by @cryptonahue'
+    },
+    
+    // Botones de redes sociales
+    socialButtons: {
+      telegramLabel: 'Unirse a nuestro grupo de Telegram'
     }
   },
   en: {
@@ -449,6 +454,12 @@ export const ui = {
       faq: 'FAQ',
       followUs: 'Follow Us',
       copyright: '© 2025 DeSci Quark Development by @cryptonahue'
+    },
+    
+    // Social media buttons
+    socialButtons: {
+      telegramLabel: 'Join our Telegram group',
+      whatsappLabel: 'Join our WhatsApp group'
     }
   }
 };
