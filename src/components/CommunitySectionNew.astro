@@ -1,0 +1,58 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import TelegramCta from './TelegramCta.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// URL del grupo de Telegram
+const telegramGroupUrl = "https://t.me/desciquark";
+
+// Traducciones para la sección
+const title = lang === 'en' ? 'Join Our DeSci Community' : 'Únete a Nuestra Comunidad DeSci';
+const subtitle = lang === 'en' 
+  ? 'Connect with scientists, researchers, and blockchain enthusiasts to share knowledge and stay updated on the latest DeSci developments.'
+  : 'Conecta con científicos, investigadores y entusiastas de blockchain para compartir conocimientos y mantenerte actualizado sobre los últimos avances en DeSci.';
+const telegramDescription = lang === 'en'
+  ? 'Join our active Telegram group for discussions, updates, and support related to the course and DeSci topics.'
+  : 'Únete a nuestro grupo activo de Telegram para discusiones, actualizaciones y soporte relacionado con el curso y temas de DeSci.';
+---
+
+<section class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50 w-full">
+  <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">{title}</h2>
+      <div class="w-16 h-1 bg-primary-500 mx-auto my-4"></div>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
+    </div>
+    
+    <div class="glass-card backdrop-blur-lg p-8 md:p-10 max-w-4xl mx-auto">
+      <div class="flex flex-col items-center">
+        <div class="bg-[#0088cc] w-24 h-24 rounded-full flex items-center justify-center shadow-lg mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="white">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+          </svg>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Telegram</h3>
+        
+        <p class="text-gray-600 text-center mb-8 max-w-lg">{telegramDescription}</p>
+        
+        <TelegramCta 
+          telegramUrl={telegramGroupUrl} 
+          size="lg"
+          className="shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 w-full md:w-auto justify-center"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(200, 225, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 102, 229, 0.1);
+  }
+</style>

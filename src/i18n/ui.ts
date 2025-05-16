@@ -3,6 +3,14 @@ export const ui = {
     // Navegación
     login: 'Iniciar Sesión',
     
+    // Social media icons
+    social: {
+      github: 'Visitar nuestro GitHub',
+      linkedin: 'Visitar nuestro LinkedIn',
+      instagram: 'Visitar nuestro Instagram',
+      twitter: 'Visitar nuestro Twitter/X'
+    },
+    
     // Hero Section
     hero: {
       title: 'Fundamentos de Blockchain y Herramientas Avanzadas para Científicos usando Cardano',
@@ -234,6 +242,14 @@ export const ui = {
     // Navigation
     login: 'Login',
     
+    // Social media icons
+    social: {
+      github: 'Visit our GitHub',
+      linkedin: 'Visit our LinkedIn',
+      instagram: 'Visit our Instagram',
+      twitter: 'Visit our Twitter/X'
+    },
+    
     // Hero Section
     hero: {
       title: 'Blockchain Fundamentals and Advanced Tools for Scientists using Cardano',
@@ -458,7 +474,7 @@ export const ui = {
     
     // Social media buttons
     socialButtons: {
-      telegramLabel: 'Join our Telegram group',
+      telegramLabel: 'Unirse a nuestro grupo de Telegram',
       whatsappLabel: 'Join our WhatsApp group'
     }
   }

@@ -1,0 +1,70 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import TelegramCta from './TelegramCta.astro';
+import DiscordCta from './DiscordCta.astro';
+import CommunityCard from './CommunityCard.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// URLs de comunidad
+const telegramGroupUrl = "https://t.me/desciquark";
+const discordServerUrl = "https://discord.gg/desciquark"; // Reemplazar con la URL correcta
+
+// Traducciones para la sección
+const title = lang === 'en' ? 'Join Our DeSci Community' : 'Únete a Nuestra Comunidad DeSci';
+const subtitle = lang === 'en' 
+  ? 'Connect with scientists, researchers, and blockchain enthusiasts to share knowledge and stay updated on the latest DeSci developments.'
+  : 'Conecta con científicos, investigadores y entusiastas de blockchain para compartir conocimientos y mantenerte actualizado sobre los últimos avances en DeSci.';
+
+const telegramDescription = lang === 'en'
+  ? 'Join our active Telegram group for discussions, updates, and support related to the course and DeSci topics.'
+  : 'Únete a nuestro grupo activo de Telegram para discusiones, actualizaciones y soporte relacionado con el curso y temas de DeSci.';
+
+const discordDescription = lang === 'en'
+  ? 'Connect with our community on Discord for deeper discussions, resources sharing, and collaboration opportunities.'
+  : 'Conéctate con nuestra comunidad en Discord para discusiones más profundas, compartir recursos y oportunidades de colaboración.';
+
+const discordLabel = lang === 'en' ? 'Join our Discord server' : 'Unirse a nuestro servidor de Discord';
+---
+
+<section class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50 w-full">
+  <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">{title}</h2>
+      <div class="w-16 h-1 bg-primary-500 mx-auto my-4"></div>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-1 gap-8">
+        <CommunityCard 
+          icon="telegram"
+          title="Telegram"
+          description={telegramDescription}
+        >
+          <TelegramCta 
+            telegramUrl={telegramGroupUrl} 
+            size="lg"
+            className="shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 w-full justify-center"
+          />
+        </CommunityCard>
+        
+        <!-- Puedes descomentar esto si quieres añadir Discord en el futuro
+        <CommunityCard 
+          icon="discord"
+          title="Discord"
+          description={discordDescription}
+        >
+          <DiscordCta 
+            discordUrl={discordServerUrl} 
+            label={discordLabel}
+            size="lg"
+            className="shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 w-full justify-center"
+          />
+        </CommunityCard>
+        -->
+      </div>
+    </div>
+  </div>
+</section>

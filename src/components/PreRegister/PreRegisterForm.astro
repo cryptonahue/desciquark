@@ -1,0 +1,70 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import TesterInfo from './TesterInfo.astro';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Formulario de Tally según el idioma
+// Usamos el mismo formulario para ambos idiomas para mantener consistencia
+const tallyFormUrl = "https://tally.so/r/mRgoll?transparentBackground=1";
+---
+
+<section class="py-16 bg-gradient-to-b from-primary-800 to-primary-900 text-white" style="margin-top: -1px;">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 md:p-8 shadow-xl">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">{t('registerModal.title')}</h1>
+        <p class="text-xl text-blue-100">{t('registerModal.description')}</p>
+      </div>
+      
+      <!-- Información del programa de testers -->
+      <TesterInfo lang={lang} />
+      
+      <!-- Formulario Tally -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg h-[550px]">
+        <iframe 
+          data-tally-src={tallyFormUrl} 
+          width="100%" 
+          height="100%" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0" 
+          title={lang === 'es' ? "🧪 Registro de Testers - DeSci Quark" : "🧪 Testers Registration - DeSci Quark"}
+          class="w-full h-full">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Cargar el Tally embed script si aún no se ha cargado
+  function loadTallyScript() {
+    if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://tally.so/widgets/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }
+
+  // Inicializar Tally
+  function initTally() {
+    if (window.Tally) {
+      window.Tally.loadEmbeds();
+    } else {
+      setTimeout(initTally, 300);
+    }
+  }
+  
+  // Cargar el script y inicializar
+  document.addEventListener('DOMContentLoaded', () => {
+    loadTallyScript();
+    setTimeout(initTally, 500);
+  });
+</script>

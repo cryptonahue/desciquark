@@ -1,37 +1,75 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import NavMenu from './NavMenu.astro';
+import MobileMenu from './MobileMenu.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-// Obtener URL alternativas para el selector de idioma
 const currentPath = Astro.url.pathname;
-const esPath = currentPath.startsWith('/en/') 
-  ? currentPath.replace('/en/', '/') 
-  : currentPath;
-const enPath = currentPath.startsWith('/en/') 
-  ? currentPath 
-  : '/en' + currentPath;
 ---
 
-<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
-  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-    <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2">
-      <img src="/images/logo.svg" alt="DeSci Quark" class="h-10" />
-      <span class="text-xl font-bold text-primary-600">DeSci Quark</span>
-    </a>
-    
-    <div class="flex items-center gap-4">
-      <!-- Selector de idioma -->
-      <div class="flex border border-gray-300 rounded-full overflow-hidden">
-        <a href={esPath} class={`px-3 py-1 text-sm ${lang === 'es' ? 'bg-primary-500 text-white' : 'hover:bg-gray-100'}`}>ES</a>
-        <a href={enPath} class={`px-3 py-1 text-sm ${lang === 'en' ? 'bg-primary-500 text-white' : 'hover:bg-gray-100'}`}>EN</a>
-      </div>
-      
-      <!-- Botón de login -->
-      <a href="#" class="btn btn-outline py-2 px-4">
-        {t('login')}
+<header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/95 border-b border-gray-200 shadow-sm">
+  <div class="container mx-auto px-4 py-3">
+    <!-- Vista para móviles (<1024px) -->
+    <div class="flex justify-between items-center lg:hidden">
+      <!-- Logo -->
+      <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2">
+        <img src="/images/logo.svg" alt="DeSci Quark" class="h-10" />
+        <span class="text-xl font-bold text-primary-600">DeSci Quark</span>
       </a>
+      
+      <!-- Acciones en la barra móvil -->
+      <div class="flex items-center gap-3">
+        <!-- Selector de idioma -->
+        <LanguageSwitcher currentPath={currentPath} currentLang={lang} />
+        
+        <!-- Botón del menú móvil -->
+        <button id="menu-button" class="p-2 text-gray-500 hover:text-gray-700">
+          <img src="/icons/menu.svg" alt="Menú" class="h-6 w-6" />
+        </button>
+      </div>
+    </div>
+    
+    <!-- Vista para desktop (≥1024px) -->
+    <div class="hidden lg:flex justify-between items-center">
+      <!-- Logo -->
+      <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2">
+        <img src="/images/logo.svg" alt="DeSci Quark" class="h-10" />
+        <span class="text-xl font-bold text-primary-600">DeSci Quark</span>
+      </a>
+      
+      <!-- Navegación en Desktop -->
+      <NavMenu lang={lang} />
+      
+      <!-- Acciones en la barra desktop -->
+      <div class="flex items-center gap-3">
+        <!-- Selector de idioma -->
+        <LanguageSwitcher currentPath={currentPath} currentLang={lang} />
+        
+        <!-- Botón de login -->
+        <a href="#" class="btn btn-outline py-2 px-4">
+          {t('login')}
+        </a>
+      </div>
     </div>
   </div>
 </header>
+
+<!-- Menú móvil (fuera del header para que funcione bien el fixed) -->
+<MobileMenu lang={lang} />
+
+<!-- Estilos adicionales para asegurar que los botones se vean bien -->
+<style>
+  .btn {
+    @apply inline-flex items-center justify-center font-medium transition-colors duration-200 rounded-md;
+  }
+  
+  .btn-outline {
+    @apply border border-primary-600 text-primary-600 hover:bg-primary-50;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+  }
+</style>

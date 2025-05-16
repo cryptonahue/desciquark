@@ -1,0 +1,124 @@
+---
+// MobileMenu.astro
+// Componente para el menú en dispositivos móviles
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Definir elementos del menú de navegación
+const navItems = [
+  {
+    label: lang === 'en' ? 'About the Course' : 'Sobre el Curso',
+    href: lang === 'en' ? '/en/#course-overview' : '/#course-overview'
+  },
+  {
+    label: lang === 'en' ? 'Course Content' : 'Contenido del Curso',
+    href: lang === 'en' ? '/en/#course-content' : '/#course-content'
+  },
+  {
+    label: lang === 'en' ? 'Details' : 'Detalles',
+    href: lang === 'en' ? '/en/#course-details' : '/#course-details'
+  },
+  {
+    label: lang === 'en' ? 'FAQ' : 'FAQ',
+    href: lang === 'en' ? '/en/#faq' : '/#faq'
+  }
+];
+
+// Obtener URL alternativas para el selector de idioma
+const currentPath = Astro.url.pathname;
+const esPath = currentPath.startsWith('/en/') 
+  ? currentPath.replace('/en/', '/') 
+  : currentPath;
+const enPath = currentPath.startsWith('/en/') 
+  ? currentPath 
+  : '/en' + currentPath;
+---
+
+<div id="mobile-menu" class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+  <div class="flex items-center justify-between p-4 border-b">
+    <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2">
+      <img src="/images/logo.svg" alt="DeSci Quark" class="h-10" />
+      <span class="text-xl font-bold text-primary-600">DeSci Quark</span>
+    </a>
+    <button id="close-menu" class="p-2 text-gray-500 hover:text-gray-700">
+      <img src="/icons/close.svg" alt="Cerrar menú" class="h-6 w-6" />
+    </button>
+  </div>
+  
+  <div class="flex-1 overflow-y-auto p-4">
+    <div class="space-y-1">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class="block px-3 py-4 text-base font-medium text-gray-700 rounded-md hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+  
+  <div class="p-4 border-t">
+    <div class="grid grid-cols-2 gap-3">
+      <a href="#" class="btn btn-outline py-2 px-4 text-center">
+        {t('login')}
+      </a>
+      <a href="#" class="btn btn-primary py-2 px-4 text-center">
+        {t('hero.registerBtn')}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Toggle mobile menu
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeButton = document.getElementById('close-menu');
+    const telegramButton = document.getElementById('telegram-button');
+    
+    if (menuButton && mobileMenu && closeButton) {
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-x-full');
+        document.body.classList.add('overflow-hidden');
+        
+        // Ocultar botón de Telegram
+        if (telegramButton) {
+          telegramButton.classList.add('hidden');
+        }
+      });
+      
+      closeButton.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+        document.body.classList.remove('overflow-hidden');
+        
+        // Mostrar botón de Telegram
+        if (telegramButton) {
+          telegramButton.classList.remove('hidden');
+        }
+      });
+      
+      // Close menu when clicking on links
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('translate-x-full');
+          document.body.classList.remove('overflow-hidden');
+          
+          // Mostrar botón de Telegram
+          if (telegramButton) {
+            telegramButton.classList.remove('hidden');
+          }
+        });
+      });
+    }
+  });
+</script>

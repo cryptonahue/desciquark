@@ -25,9 +25,9 @@ const tallyFormUrl = "https://tally.so/r/mRgoll?transparentBackground=1";
           {t('hero.description')}
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <button id="openModalBtn" class="btn btn-primary bg-white text-primary-600 hover:bg-blue-50 shadow-lg">
+          <a href={lang === 'es' ? '/es/pre-registro' : '/en/pre-registration'} class="btn btn-primary bg-white text-primary-600 hover:bg-blue-50 shadow-lg">
             {t('hero.registerBtn')}
-          </button>
+          </a>
           <a href="#course-content" class="btn btn-outline text-white border-white hover:bg-white hover:text-primary-600 shadow-md">
             {t('hero.learnMoreBtn')}
           </a>
@@ -45,86 +45,9 @@ const tallyFormUrl = "https://tally.so/r/mRgoll?transparentBackground=1";
   </div>
 </section>
 
-<!-- Modal de registro (oculto por defecto) -->
-<div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-  <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 relative animate-fade-in shadow-xl h-[600px]">
-    <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-    
-    <!-- Formulario Tally -->
-    <div class="h-full">
-      <iframe 
-        id="tallyIframe"
-        data-tally-src={tallyFormUrl} 
-        width="100%" 
-        height="100%" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0" 
-        title="🧪 Registro de Testers - DeSci Quark"
-        class="w-full h-full">
-      </iframe>
-    </div>
-  </div>
-</div>
 
-<script>
-  // Modal functionality
-  const openModalBtn = document.getElementById('openModalBtn');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-  const registerModal = document.getElementById('registerModal');
-  const tallyIframe = document.getElementById('tallyIframe');
 
-  if (openModalBtn && closeModalBtn && registerModal && tallyIframe) {
-    // Cargar el Tally embed script
-    function loadTallyScript() {
-      // Verificar si el script ya está cargado
-      if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
-        const script = document.createElement('script');
-        script.src = 'https://tally.so/widgets/embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-      }
-    }
 
-    // Inicializar Tally cuando se abre el modal
-    function initTally() {
-      if (window.Tally) {
-        window.Tally.loadEmbeds();
-      } else {
-        // Si el script aún no se ha cargado, intentar de nuevo en un momento
-        setTimeout(initTally, 300);
-      }
-    }
-    
-    // Cargar el script de Tally al inicio
-    loadTallyScript();
-    
-    openModalBtn.addEventListener('click', () => {
-      registerModal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      
-      // Inicializar Tally cuando se abre el modal
-      setTimeout(initTally, 100);
-    });
-
-    closeModalBtn.addEventListener('click', () => {
-      registerModal.classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    });
-
-    // Close modal if clicking outside
-    registerModal.addEventListener('click', (e) => {
-      if (e.target === registerModal) {
-        registerModal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
-      }
-    });
-  }
-</script>
 
 <style>
   /* Aseguramos que el contenedor del video tenga suficiente espacio */

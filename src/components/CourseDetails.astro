@@ -119,9 +119,9 @@ const t = useTranslations(lang);
         </ul>
         
         <div class="mt-8">
-          <button id="openModalBtn" class="btn btn-primary w-full shadow-md">
+          <a href={lang === 'es' ? '/es/pre-registro' : '/en/pre-registration'} class="btn btn-primary w-full shadow-md">
             {t('courseDetails.registerCta')}
-          </button>
+          </a>
         </div>
       </div>
     </div>

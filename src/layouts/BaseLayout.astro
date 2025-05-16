@@ -51,14 +51,14 @@ const telegramGroupUrl = "https://t.me/desciquark";
     <!-- Tally.so Embed Script -->
     <script async src="https://tally.so/widgets/embed.js"></script>
   </head>
-  <body class="min-h-screen flex flex-col bg-white text-gray-800">
+  <body class="min-h-screen flex flex-col bg-white text-gray-800 antialiased">
     <Header />
-    <main class="flex-grow">
+    <main class="flex-grow flex flex-col">
       <slot />
     </main>
     <Footer />
     
-    <!-- Botón flotante de Telegram -->
-    <TelegramButton telegramUrl={telegramGroupUrl} />
+    <!-- Botón flotante de Telegram (siempre en español) -->
+    <TelegramButton telegramUrl={telegramGroupUrl} label="Unirse a nuestro grupo de Telegram" />
   </body>
 </html>

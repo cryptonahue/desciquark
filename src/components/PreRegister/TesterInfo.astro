@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl p-6 md:p-8 mb-8 text-white shadow-lg">
+  <div class="max-w-3xl mx-auto">
+    <h3 class="text-2xl font-bold mb-4">
+      {lang === 'es' ? '🧪 Programa de Testers' : '🧪 Testers Program'}
+    </h3>
+    
+    <p class="mb-4 text-lg">
+      {lang === 'es' 
+        ? 'Gracias por tu interés en participar como tester (evaluador) del curso antes de su lanzamiento público. Este curso gratuito explora cómo aplicar blockchain (especialmente Cardano) a la ciencia descentralizada (DeSci).'
+        : 'Thank you for your interest in participating as a tester (evaluator) of the course before its public launch. This free course explores how to apply blockchain (especially Cardano) to decentralized science (DeSci).'}
+    </p>
+    
+    <h4 class="text-xl font-semibold mt-6 mb-3">
+      {lang === 'es' ? 'Los testers seleccionados:' : 'Selected testers will:'}
+    </h4>
+    
+    <ul class="space-y-3 pl-1">
+      <li class="flex items-start gap-3">
+        <span class="text-green-300 font-bold text-xl">✅</span>
+        <span class="text-lg">{lang === 'es' ? 'Tendrán acceso anticipado al curso' : 'Get early access to the course'}</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-green-300 font-bold text-xl">✅</span>
+        <span class="text-lg">{lang === 'es' ? 'Recibirán 50 ADA por su feedback' : 'Receive 50 ADA for their feedback'}</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-green-300 font-bold text-xl">✅</span>
+        <span class="text-lg">{lang === 'es' ? 'Obtendrán un certificado digital en NFT' : 'Get a digital NFT certificate'}</span>
+      </li>
+    </ul>
+  </div>
+</div>

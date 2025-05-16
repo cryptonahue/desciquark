@@ -17,9 +17,9 @@ const t = useTranslations(lang);
           : 'Únete a nuestro curso gratuito y aprende cómo blockchain y Cardano pueden transformar la investigación científica. ¡Pre-regístrate ahora para asegurar tu lugar!'}
       </p>
       
-      <button id="openModalBtn" class="btn bg-white text-primary-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <a href={lang === 'es' ? '/es/pre-registro' : '/en/pre-registration'} class="btn bg-white text-primary-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
         {lang === 'en' ? 'Pre-register Now' : 'Pre-regístrate Ahora'}
-      </button>
+      </a>
     </div>
   </div>
 </section>

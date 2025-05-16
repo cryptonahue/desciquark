@@ -4,10 +4,11 @@ interface Props {
   label?: string;
 }
 
+// Mantener el label siempre en español, sin traducir
 const { telegramUrl, label = "Unirse a nuestro grupo de Telegram" } = Astro.props;
 ---
 
-<div class="telegram-button-container fixed bottom-6 right-6 z-50">
+<div id="telegram-button" class="telegram-button-container fixed bottom-6 right-6 z-40">
   <a 
     href={telegramUrl}
     target="_blank"
@@ -99,6 +100,7 @@ const { telegramUrl, label = "Unirse a nuestro grupo de Telegram" } = Astro.prop
   .telegram-float-button {
     animation: pulse 2s infinite;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
   }
   
   .telegram-float-button:hover {

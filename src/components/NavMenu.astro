@@ -1,0 +1,44 @@
+---
+// NavMenu.astro
+// Componente para el menú de navegación
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Definir elementos del menú de navegación
+const navItems = [
+  {
+    label: lang === 'en' ? 'About the Course' : 'Sobre el Curso',
+    href: lang === 'en' ? '/en/#course-overview' : '/#course-overview'
+  },
+  {
+    label: lang === 'en' ? 'Course Content' : 'Contenido del Curso',
+    href: lang === 'en' ? '/en/#course-content' : '/#course-content'
+  },
+  {
+    label: lang === 'en' ? 'Details' : 'Detalles',
+    href: lang === 'en' ? '/en/#course-details' : '/#course-details'
+  },
+  {
+    label: lang === 'en' ? 'FAQ' : 'FAQ',
+    href: lang === 'en' ? '/en/#faq' : '/#faq'
+  }
+];
+---
+
+<nav class="hidden md:flex items-center space-x-1">
+  {navItems.map(item => (
+    <a 
+      href={item.href} 
+      class="px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200"
+    >
+      {item.label}
+    </a>
+  ))}
+</nav>
