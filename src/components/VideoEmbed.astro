@@ -1,0 +1,51 @@
+---
+interface Props {
+  url: string;
+  title: string;
+  className?: string;
+}
+
+const { url, title, className = "" } = Astro.props;
+
+// Extract video ID from YouTube URL
+function getYouTubeID(url: string): string {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : '';
+}
+
+const videoId = getYouTubeID(url);
+const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+---
+
+<div class={`video-container ${className}`}>
+  <iframe 
+    src={embedUrl} 
+    title={title} 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+    class="video-iframe">
+  </iframe>
+</div>
+
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Esto establece exactamente el aspect ratio 16:9 (9/16 = 0.5625 = 56.25%) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0.75rem;
+  }
+</style>

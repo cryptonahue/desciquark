@@ -42,12 +42,12 @@ export const ui = {
         description: 'Recibe un certificado digital que demuestra tus nuevas habilidades en DeSci y Cardano.'
       },
       statOne: {
-        value: '7 Módulos',
+        value: '8 Módulos',
         label: 'Contenido estructurado'
       },
       statTwo: {
-        value: '18 Horas',
-        label: 'De aprendizaje'
+        value: 'A definir',
+        label: 'Horas de aprendizaje'
       },
       statThree: {
         value: 'Acceso libre',
@@ -144,6 +144,13 @@ export const ui = {
         lesson1: 'Lección 6.1: Infraestructura y Escalabilidad en Cardano',
         lesson2: 'Lección 6.2: Lenguajes de Programación en Cardano',
         lesson3: 'Lección 6.3: Actividades interactivas'
+      },
+      module8: {
+        title: 'Evaluación Final',
+        description: 'Evaluación final y conclusión del curso.',
+        lesson1: 'Examen final',
+        lesson2: 'Conclusiones del curso',
+        lesson3: 'Próximos pasos'
       }
     },
     
@@ -159,7 +166,7 @@ export const ui = {
       },
       duration: {
         title: 'Duración',
-        value: '6 semanas (18 horas estimadas de estudio)'
+        value: 'A definir'
       },
       audience: {
         title: 'Audiencia',
@@ -190,14 +197,20 @@ export const ui = {
         q2: '¿Qué certificación recibiré al completar el curso?',
         q3: '¿Habrá sesiones en vivo o todo el contenido está pre-grabado?',
         q4: '¿Puedo acceder al curso desde cualquier dispositivo?',
-        q5: '¿Cómo puedo contactar a los instructores si tengo dudas?'
+        q5: '¿Cómo puedo contactar a los instructores si tengo dudas?',
+        q6: '¿Cuánto dura el curso?',
+        q7: '¿Cuál es el costo del curso?',
+        q8: '¿En qué idiomas está disponible el curso?'
       },
       answers: {
         a1: 'No, este curso está diseñado específicamente para científicos y académicos sin experiencia previa en blockchain o programación. Comenzaremos desde lo más básico.',
         a2: 'Al completar todos los módulos y actividades del curso, recibirás un certificado digital que valida tus conocimientos en DeSci y Cardano, el cual puedes compartir en tu perfil profesional.',
         a3: 'Todo el contenido del curso está pre-grabado, permitiéndote avanzar a tu propio ritmo. Sin embargo, tendremos foros de discusión donde podrás interactuar con instructores y otros participantes.',
         a4: 'Sí, nuestra plataforma es responsive y se adapta a dispositivos móviles, tablets y computadoras, permitiéndote estudiar desde donde prefieras.',
-        a5: 'Tendremos un foro de discusión dedicado donde podrás publicar tus preguntas, y también nos puedes contactar directamente a través de info@desciquark.com.'
+        a5: 'Tendremos un foro de discusión dedicado donde podrás publicar tus preguntas, y también nos puedes contactar directamente a través de info@desciquark.com.',
+        a6: 'El tiempo de duración del curso está siendo determinado. Al ser autogestionado, podrás avanzar a tu propio ritmo según tu disponibilidad.',
+        a7: 'El curso es completamente gratuito gracias al financiamiento de Project Catalyst, el programa de innovación de Cardano.',
+        a8: 'Las clases fueron grabadas en español o en inglés, sin embargo, todos los videos cuentan con subtítulos en inglés y en español.'
       }
     },
     
@@ -255,12 +268,12 @@ export const ui = {
         description: 'Receive a digital certificate showcasing your new skills in DeSci and Cardano.'
       },
       statOne: {
-        value: '7 Modules',
+        value: '8 Modules',
         label: 'Structured content'
       },
       statTwo: {
-        value: '18 Hours',
-        label: 'Of learning'
+        value: 'To be defined',
+        label: 'Learning hours'
       },
       statThree: {
         value: 'Free access',
@@ -357,6 +370,13 @@ export const ui = {
         lesson1: 'Lesson 6.1: Infrastructure and Scalability in Cardano',
         lesson2: 'Lesson 6.2: Programming Languages in Cardano',
         lesson3: 'Lesson 6.3: Interactive activities'
+      },
+      module8: {
+        title: 'Final Evaluation',
+        description: 'Final evaluation and course conclusion.',
+        lesson1: 'Final exam',
+        lesson2: 'Course conclusions',
+        lesson3: 'Next steps'
       }
     },
     
@@ -372,7 +392,7 @@ export const ui = {
       },
       duration: {
         title: 'Duration',
-        value: '6 weeks (18 estimated study hours)'
+        value: 'To be defined'
       },
       audience: {
         title: 'Target Audience',
@@ -403,14 +423,20 @@ export const ui = {
         q2: 'What certification will I receive upon completion?',
         q3: 'Will there be live sessions or is all content pre-recorded?',
         q4: 'Can I access the course from any device?',
-        q5: 'How can I contact instructors if I have questions?'
+        q5: 'How can I contact instructors if I have questions?',
+        q6: 'How long is the course?',
+        q7: 'What is the cost of the course?',
+        q8: 'What languages is the course available in?'
       },
       answers: {
         a1: 'No, this course is specifically designed for scientists and academics with no prior experience in blockchain or programming. We will start from the very basics.',
         a2: 'Upon completing all modules and activities in the course, you will receive a digital certificate validating your knowledge in DeSci and Cardano, which you can share in your professional profile.',
         a3: 'All course content is pre-recorded, allowing you to progress at your own pace. However, we will have discussion forums where you can interact with instructors and other participants.',
         a4: 'Yes, our platform is responsive and adapts to mobile devices, tablets, and computers, allowing you to study from wherever you prefer.',
-        a5: 'We will have a dedicated discussion forum where you can post your questions, and you can also contact us directly through info@desciquark.com.'
+        a5: 'We will have a dedicated discussion forum where you can post your questions, and you can also contact us directly through info@desciquark.com.',
+        a6: 'The course duration is currently being determined. Being self-paced, you can progress at your own speed according to your availability.',
+        a7: 'The course is completely free thanks to funding from Project Catalyst, Cardano\'s innovation program.',
+        a8: 'Classes were recorded in either Spanish or English, however, all videos include both English and Spanish subtitles.'
       }
     },
     

@@ -1,0 +1,141 @@
+---
+interface Props {
+  telegramUrl: string;
+  label?: string;
+}
+
+const { telegramUrl, label = "Unirse a nuestro grupo de Telegram" } = Astro.props;
+---
+
+<div class="telegram-button-container fixed bottom-6 right-6 z-50">
+  <a 
+    href={telegramUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="telegram-float-button bg-[#0088cc] text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300"
+    aria-label={label}
+    id="telegramButton"
+  >
+    <div class="icon-container flex items-center justify-center w-14 h-14">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" class="telegram-icon">
+        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+      </svg>
+    </div>
+    <div class="label-container hidden overflow-hidden whitespace-nowrap max-w-0 transition-all duration-300">
+      <span class="text-sm font-medium px-4">Unirse al grupo</span>
+    </div>
+  </a>
+  
+  <!-- Tooltip -->
+  <div class="telegram-tooltip absolute hidden opacity-0 transition-opacity duration-300 bottom-full right-0 mb-2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap pointer-events-none">
+    {label}
+    <div class="tooltip-arrow absolute top-full right-4 h-2 w-2 bg-gray-800 transform rotate-45"></div>
+  </div>
+</div>
+
+<script>
+  const telegramButton = document.getElementById('telegramButton');
+  const tooltip = document.querySelector('.telegram-tooltip');
+  
+  if (telegramButton && tooltip) {
+    // Mostrar tooltip en dispositivos de escritorio
+    if (window.innerWidth > 768) {
+      telegramButton.addEventListener('mouseenter', () => {
+        telegramButton.classList.add('expanded');
+        tooltip.classList.remove('hidden');
+        setTimeout(() => {
+          tooltip.classList.add('opacity-100');
+        }, 10);
+      });
+      
+      telegramButton.addEventListener('mouseleave', () => {
+        telegramButton.classList.remove('expanded');
+        tooltip.classList.remove('opacity-100');
+        setTimeout(() => {
+          tooltip.classList.add('hidden');
+        }, 300);
+      });
+    }
+    
+    // En móviles, mostrar el texto expandido al tocar
+    if (window.innerWidth <= 768) {
+      let isExpanded = false;
+      
+      telegramButton.addEventListener('click', (e) => {
+        if (!isExpanded) {
+          e.preventDefault();
+          telegramButton.classList.add('expanded');
+          isExpanded = true;
+          
+          // Establecer un temporizador para volver al estado original después de un tiempo
+          setTimeout(() => {
+            telegramButton.classList.remove('expanded');
+            isExpanded = false;
+          }, 3000);
+        }
+      });
+    }
+  }
+</script>
+
+<style>
+  /* Animación de pulso para llamar la atención */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(0, 136, 204, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 136, 204, 0);
+    }
+  }
+  
+  .telegram-button-container {
+    filter: drop-shadow(0 0 10px rgba(0, 136, 204, 0.1));
+  }
+  
+  .telegram-float-button {
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease;
+  }
+  
+  .telegram-float-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px -5px rgba(0, 136, 204, 0.4);
+  }
+  
+  .telegram-float-button.expanded {
+    border-radius: 9999px;
+    padding-right: 0.75rem;
+  }
+  
+  .telegram-float-button.expanded .label-container {
+    display: block;
+    max-width: 200px;
+  }
+  
+  /* Para pantallas móviles, hacer el botón más pequeño */
+  @media (max-width: 640px) {
+    .telegram-button-container {
+      bottom: 1.5rem;
+      right: 1rem;
+    }
+    
+    .icon-container {
+      width: 3rem;
+      height: 3rem;
+    }
+    
+    .telegram-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  /* Asegúrate de que el tooltip se muestre correctamente */
+  .tooltip-arrow {
+    margin-top: -1px;
+  }
+</style>

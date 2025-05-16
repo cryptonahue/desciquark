@@ -1,0 +1,23 @@
+---
+interface LessonProps {
+  title: string;
+  description?: string;
+  number: string;
+  duration?: string;
+}
+
+const { title, description, number, duration = "10 min" } = Astro.props;
+---
+
+<div class="lesson-item flex items-start gap-4 p-4 hover:bg-blue-50 rounded-lg transition-colors duration-200">
+  <div class="lesson-number bg-primary-100 text-primary-700 w-8 h-8 rounded-full flex items-center justify-center font-medium shrink-0">
+    {number}
+  </div>
+  <div class="lesson-content flex-grow">
+    <h4 class="font-medium text-gray-800">{title}</h4>
+    {description && <p class="text-gray-600 text-sm mt-1">{description}</p>}
+  </div>
+  <div class="lesson-duration shrink-0 text-sm text-gray-500 font-medium">
+    {duration}
+  </div>
+</div>
