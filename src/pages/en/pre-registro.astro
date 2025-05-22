@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PreRegisterForm from "../../components/PreRegister/PreRegisterForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = "en";
+const t = useTranslations(lang);
+
+const title = t('preRegister.pageTitle');
+const description = t('preRegister.pageDescription');
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <PreRegisterForm lang={lang} />
+</BaseLayout>
