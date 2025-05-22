@@ -8,17 +8,19 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  lang?: string;
 }
 
-const { title, description, image = '/images/og-image.jpg' } = Astro.props;
+const { title, description, image = '/images/og-image.jpg', lang } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentLang = lang || Astro.currentLocale || 'es';
 
-// URL del grupo de Telegram (reemplázala con la URL correcta)
-const telegramGroupUrl = "https://t.me/desciquark";
+// URL del grupo de Telegram
+const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
 ---
 
 <!DOCTYPE html>
-<html lang={Astro.currentLocale}>
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,7 +60,7 @@ const telegramGroupUrl = "https://t.me/desciquark";
     </main>
     <Footer />
     
-    <!-- Botón flotante de Telegram (siempre en español) -->
+    <!-- Botón flotante de Telegram -->
     <TelegramButton telegramUrl={telegramGroupUrl} label="Unirse a nuestro grupo de Telegram" />
   </body>
 </html>

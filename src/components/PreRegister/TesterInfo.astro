@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
 
 interface Props {
   lang: string;
@@ -9,35 +9,53 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl p-6 md:p-8 mb-8 text-white shadow-lg">
-  <div class="max-w-3xl mx-auto">
-    <h3 class="text-2xl font-bold mb-4">
-      {lang === 'es' ? '🧪 Programa de Testers' : '🧪 Testers Program'}
-    </h3>
+<div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-purple-400/30 rounded-xl p-6 mb-8">
+  <div class="flex items-center mb-4">
+    <div class="w-12 h-12 bg-purple-500/30 rounded-full flex items-center justify-center mr-4">
+      <span class="text-2xl">🧪</span>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold text-white">
+        {lang === 'es' ? 'Programa de Testers Beta' : 'Beta Testing Program'}
+      </h3>
+      <p class="text-purple-200 text-sm">
+        {lang === 'es' ? 'Ayúdanos a perfeccionar el curso' : 'Help us perfect the course'}
+      </p>
+    </div>
+  </div>
+  
+  <p class="text-white/90 mb-6 leading-relaxed">
+    {lang === 'es' 
+      ? 'Como tester beta, serás parte fundamental del desarrollo de este curso gratuito sobre blockchain y ciencia descentralizada (DeSci) usando Cardano. Tu feedback nos ayudará a crear la mejor experiencia educativa posible.'
+      : 'As a beta tester, you\'ll be a fundamental part of developing this free course on blockchain and decentralized science (DeSci) using Cardano. Your feedback will help us create the best possible educational experience.'
+    }
+  </p>
+  
+  <div class="grid md:grid-cols-3 gap-4">
+    <div class="bg-white/10 rounded-lg p-4 text-center">
+      <div class="text-3xl mb-2">⚡</div>
+      <h4 class="font-semibold text-white mb-1">
+        {lang === 'es' ? 'Acceso Temprano' : 'Early Access'}
+      </h4>
+      <p class="text-sm text-purple-200">
+        {lang === 'es' ? 'Sé el primero en explorar el contenido' : 'Be the first to explore the content'}
+      </p>
+    </div>
     
-    <p class="mb-4 text-lg">
-      {lang === 'es' 
-        ? 'Gracias por tu interés en participar como tester (evaluador) del curso antes de su lanzamiento público. Este curso gratuito explora cómo aplicar blockchain (especialmente Cardano) a la ciencia descentralizada (DeSci).'
-        : 'Thank you for your interest in participating as a tester (evaluator) of the course before its public launch. This free course explores how to apply blockchain (especially Cardano) to decentralized science (DeSci).'}
-    </p>
+    <div class="bg-white/10 rounded-lg p-4 text-center">
+      <div class="text-3xl mb-2">💰</div>
+      <h4 class="font-semibold text-white mb-1">50 ADA</h4>
+      <p class="text-sm text-purple-200">
+        {lang === 'es' ? 'Compensación por tu tiempo' : 'Compensation for your time'}
+      </p>
+    </div>
     
-    <h4 class="text-xl font-semibold mt-6 mb-3">
-      {lang === 'es' ? 'Los testers seleccionados:' : 'Selected testers will:'}
-    </h4>
-    
-    <ul class="space-y-3 pl-1">
-      <li class="flex items-start gap-3">
-        <span class="text-green-300 font-bold text-xl">✅</span>
-        <span class="text-lg">{lang === 'es' ? 'Tendrán acceso anticipado al curso' : 'Get early access to the course'}</span>
-      </li>
-      <li class="flex items-start gap-3">
-        <span class="text-green-300 font-bold text-xl">✅</span>
-        <span class="text-lg">{lang === 'es' ? 'Recibirán 50 ADA por su feedback' : 'Receive 50 ADA for their feedback'}</span>
-      </li>
-      <li class="flex items-start gap-3">
-        <span class="text-green-300 font-bold text-xl">✅</span>
-        <span class="text-lg">{lang === 'es' ? 'Obtendrán un certificado digital en NFT' : 'Get a digital NFT certificate'}</span>
-      </li>
-    </ul>
+    <div class="bg-white/10 rounded-lg p-4 text-center">
+      <div class="text-3xl mb-2">🏆</div>
+      <h4 class="font-semibold text-white mb-1">NFT</h4>
+      <p class="text-sm text-purple-200">
+        {lang === 'es' ? 'Certificado digital exclusivo' : 'Exclusive digital certificate'}
+      </p>
+    </div>
   </div>
 </div>

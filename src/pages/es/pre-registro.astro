@@ -1,11 +1,15 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PreRegisterForm from "../../components/PreRegister/PreRegisterForm.astro";
+import { useTranslations } from "../../i18n/utils";
 
-const title = "Pre-registro - DeSci Quark - Blockchain para Científicos";
-const description = "Regístrate para ser uno de los primeros en acceder a nuestro curso gratuito de blockchain para científicos usando Cardano.";
+const lang = "es";
+const t = useTranslations(lang);
+
+const title = t('preRegister.pageTitle');
+const description = t('preRegister.pageDescription');
 ---
 
-<BaseLayout title={title} description={description}>
-  <PreRegisterForm lang="es" />
+<BaseLayout title={title} description={description} lang={lang}>
+  <PreRegisterForm lang={lang} />
 </BaseLayout>

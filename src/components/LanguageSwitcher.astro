@@ -9,13 +9,37 @@ interface Props {
 
 const { currentPath, currentLang } = Astro.props;
 
-// Obtener URL alternativas para el selector de idioma
-const esPath = currentPath.startsWith('/en/') 
-  ? currentPath.replace('/en/', '/') 
-  : currentPath;
-const enPath = currentPath.startsWith('/en/') 
-  ? currentPath 
-  : '/en' + currentPath;
+// Mapeo específico de rutas - calculado en el servidor
+function getLanguageUrls(path: string) {
+  const routeMap: Record<string, { es: string, en: string }> = {
+    '/': { es: '/', en: '/en' },
+    '/en': { es: '/', en: '/en' },
+    '/en/': { es: '/', en: '/en' },
+    // Rutas de pre-registro (español en /es/ por tu estructura de archivos)
+    '/es/pre-registro': { es: '/es/pre-registro', en: '/en/pre-registration' },
+    '/en/pre-registration': { es: '/es/pre-registro', en: '/en/pre-registration' }
+  };
+
+  if (routeMap[path]) {
+    return routeMap[path];
+  }
+
+  // Fallback
+  if (path.startsWith('/en/')) {
+    const esPath = path.replace('/en/', '/es/') || '/es';
+    return { es: esPath, en: path };
+  } else if (path === '/en') {
+    return { es: '/', en: '/en' };
+  } else if (path.startsWith('/es/')) {
+    const enPath = path.replace('/es/', '/en/');
+    return { es: path, en: enPath };
+  } else {
+    const enPath = path === '/' ? '/en' : '/en' + path;
+    return { es: path, en: enPath };
+  }
+}
+
+const urls = getLanguageUrls(currentPath);
 ---
 
 <div class="relative group">
@@ -28,7 +52,9 @@ const enPath = currentPath.startsWith('/en/')
   </button>
   
   <div class="absolute right-0 mt-1 w-24 bg-white rounded-md shadow-lg overflow-hidden transform scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-200 origin-top-right z-50">
-    <a href={esPath} class={`block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 ${currentLang === 'es' ? 'bg-primary-50 text-primary-600 font-medium' : ''}`}>Español</a>
-    <a href={enPath} class={`block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 ${currentLang === 'en' ? 'bg-primary-50 text-primary-600 font-medium' : ''}`}>English</a>
+    <a href={urls.es} class={`block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 ${currentLang === 'es' ? 'bg-primary-50 text-primary-600 font-medium' : ''}`}>Español</a>
+    <a href={urls.en} class={`block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 ${currentLang === 'en' ? 'bg-primary-50 text-primary-600 font-medium' : ''}`}>English</a>
   </div>
 </div>
+
+<!-- Debug info removido -->

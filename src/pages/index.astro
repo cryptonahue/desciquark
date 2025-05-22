@@ -9,12 +9,13 @@ import CommunitySection from "../components/CommunitySection.astro";
 import CtaSection from "../components/CtaSection.astro";
 import Faq from "../components/Faq.astro";
 
-// Configuración de SEO
+// Configuración de SEO para la página principal (español por defecto)
 const title = "DeSci Quark - Blockchain para Científicos usando Cardano";
 const description = "Curso gratuito diseñado para introducir a científicos y académicos sin experiencia previa en blockchain al ecosistema DeSci a través de Cardano.";
+const lang = "es";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} lang={lang}>
   <HeroSection />
   <CourseOverview />
   <CourseObjectives />

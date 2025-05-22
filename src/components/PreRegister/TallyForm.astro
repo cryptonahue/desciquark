@@ -1,0 +1,155 @@
+---
+interface Props {
+  lang: string;
+  height?: string;
+  className?: string;
+}
+
+const { lang, height = "650px", className = "" } = Astro.props;
+
+// Configuración de formularios Tally según idioma
+const tallyConfig = {
+  es: {
+    formId: "mRgoll",
+    url: "https://tally.so/r/mRgoll",
+    title: "🧪 Registro de Testers - DeSci Quark"
+  },
+  en: {
+    formId: "mKyPqk", 
+    url: "https://tally.so/r/mKyPqk",
+    title: "🧪 Testers Registration - DeSci Quark"
+  }
+};
+
+// Obtener configuración según idioma, defaultear a español si no existe
+const config = tallyConfig[lang as keyof typeof tallyConfig] || tallyConfig.es;
+const embedUrl = `${config.url}?transparentBackground=1&hideTitle=1`;
+---
+
+<div class={`tally-form-container ${className}`}>
+  <iframe 
+    data-tally-src={embedUrl}
+    loading="lazy"
+    width="100%" 
+    height={height}
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0" 
+    title={config.title}
+    class="w-full rounded-lg shadow-sm"
+    style={`height: ${height}; min-height: ${height};`}>
+  </iframe>
+</div>
+
+<script>
+  interface TallyWindow extends Window {
+    Tally?: {
+      loadEmbeds: () => void;
+      init?: () => void;
+    };
+  }
+
+  declare const window: TallyWindow;
+
+  class TallyManager {
+    private static instance: TallyManager;
+    private scriptLoaded = false;
+    private initialized = false;
+
+    static getInstance(): TallyManager {
+      if (!TallyManager.instance) {
+        TallyManager.instance = new TallyManager();
+      }
+      return TallyManager.instance;
+    }
+
+    async loadScript(): Promise<void> {
+      return new Promise((resolve, reject) => {
+        // Verificar si el script ya está cargado
+        if (this.scriptLoaded || document.querySelector('script[src*="tally.so/widgets/embed.js"]')) {
+          this.scriptLoaded = true;
+          resolve();
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://tally.so/widgets/embed.js';
+        script.async = true;
+        
+        script.onload = () => {
+          this.scriptLoaded = true;
+          resolve();
+        };
+        
+        script.onerror = () => {
+          reject(new Error('Failed to load Tally script'));
+        };
+        
+        document.head.appendChild(script);
+      });
+    }
+
+    async initialize(): Promise<void> {
+      if (this.initialized) return;
+
+      try {
+        await this.loadScript();
+        
+        // Esperar a que Tally esté disponible
+        const maxAttempts = 20;
+        let attempts = 0;
+        
+        const checkTally = (): Promise<void> => {
+          return new Promise((resolve) => {
+            const check = () => {
+              attempts++;
+              if (window.Tally) {
+                window.Tally.loadEmbeds();
+                this.initialized = true;
+                resolve();
+              } else if (attempts < maxAttempts) {
+                setTimeout(check, 100);
+              } else {
+                console.warn('Tally failed to load after maximum attempts');
+                resolve();
+              }
+            };
+            check();
+          });
+        };
+
+        await checkTally();
+      } catch (error) {
+        console.error('Error initializing Tally:', error);
+      }
+    }
+  }
+
+  // Inicializar cuando el DOM esté listo
+  function initializeTally() {
+    const tallyManager = TallyManager.getInstance();
+    tallyManager.initialize().catch(console.error);
+  }
+
+  // Ejecutar inmediatamente si el DOM ya está listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTally);
+  } else {
+    initializeTally();
+  }
+
+  // También ejecutar cuando la página se muestre (útil para navegación con cache)
+  window.addEventListener('pageshow', initializeTally);
+</script>
+
+<style>
+  .tally-form-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tally-form-container iframe {
+    border: none;
+    background: transparent;
+  }
+</style>

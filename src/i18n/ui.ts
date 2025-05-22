@@ -30,6 +30,25 @@ export const ui = {
       submitBtn: 'Registrarme'
     },
     
+    // Pre-registro página
+    preRegister: {
+      pageTitle: 'Pre-registro - DeSci Quark',
+      pageDescription: 'Regístrate para ser uno de los primeros en acceder a nuestro curso gratuito de blockchain para científicos usando Cardano.',
+      heroTitle: 'Únete al Programa de Testers',
+      heroSubtitle: 'Sé parte de los primeros en explorar nuestro curso de blockchain para científicos',
+      heroDescription: 'Como tester, tendrás acceso anticipado al contenido, podrás dar feedback directo a nuestro equipo y recibirás reconocimiento especial por tu contribución.',
+      formTitle: 'Formulario de Registro',
+      formDescription: 'Completa la información para unirte a nuestro programa de beta testing',
+      loadingMessage: 'Cargando formulario...',
+      benefits: {
+        title: 'Beneficios del Programa de Testers',
+        early: 'Acceso temprano al contenido',
+        feedback: 'Comunicación directa con el equipo',
+        recognition: 'Reconocimiento especial',
+        community: 'Acceso a comunidad exclusiva'
+      }
+    },
+    
     // Visión general del curso
     courseOverview: {
       tag: 'ACERCA DEL CURSO',
@@ -267,6 +286,25 @@ export const ui = {
       emailLabel: 'Email address',
       emailPlaceholder: 'you@email.com',
       submitBtn: 'Register me'
+    },
+    
+    // Pre-registration page
+    preRegister: {
+      pageTitle: 'Pre-registration - DeSci Quark',
+      pageDescription: 'Register to be one of the first to access our free blockchain course for scientists using Cardano.',
+      heroTitle: 'Join the Beta Testing Program',
+      heroSubtitle: 'Be among the first to explore our blockchain course for scientists',
+      heroDescription: 'As a beta tester, you\'ll get early access to content, provide direct feedback to our team, and receive special recognition for your contribution.',
+      formTitle: 'Registration Form',
+      formDescription: 'Complete the information to join our beta testing program',
+      loadingMessage: 'Loading form...',
+      benefits: {
+        title: 'Beta Testing Program Benefits',
+        early: 'Early access to content',
+        feedback: 'Direct communication with the team',
+        recognition: 'Special recognition',
+        community: 'Access to exclusive community'
+      }
     },
     
     // Course Overview
