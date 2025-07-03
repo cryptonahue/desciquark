@@ -1,0 +1,105 @@
+{
+    "redirects": [
+      {
+        "source": "/v/eth",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/cardano",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/accounting",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/organizations",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/catalyst",
+        "destination": "https://youtu.be/ZCHS0K7iUuU",
+        "permanent": true
+      },
+      {
+        "source": "/v/tokens",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/wallets",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/nativetokens",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/defi",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/smartcontracts",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/marlowe",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/funding",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/data",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/ipnft",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/supplychain",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/hydra",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/milkomeda",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/wanchain",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/otherlanguages",
+        "destination": "https://youtube.com",
+        "permanent": true
+      },
+      {
+        "source": "/v/recap",
+        "destination": "https://youtube.com",
+        "permanent": true
+      }
+    ]
+  }
+  
