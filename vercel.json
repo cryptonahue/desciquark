@@ -1,105 +1,104 @@
 {
-    "redirects": [
-      {
-        "source": "/v/eth",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/cardano",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/accounting",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/organizations",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/catalyst",
-        "destination": "https://youtu.be/ZCHS0K7iUuU",
-        "permanent": true
-      },
-      {
-        "source": "/v/tokens",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/wallets",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/nativetokens",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/defi",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/smartcontracts",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/marlowe",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/funding",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/data",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/ipnft",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/supplychain",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/hydra",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/milkomeda",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/wanchain",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/otherlanguages",
-        "destination": "https://youtube.com",
-        "permanent": true
-      },
-      {
-        "source": "/v/recap",
-        "destination": "https://youtube.com",
-        "permanent": true
-      }
-    ]
-  }
-  
+  "redirects": [
+    {
+      "source": "/v/eth",
+      "destination": "https://youtu.be/iNLA6hL9dAI",
+      "permanent": true
+    },
+    {
+      "source": "/v/cardano",
+      "destination": "https://youtu.be/FvsCR_rqeFM",
+      "permanent": true
+    },
+    {
+      "source": "/v/accounting",
+      "destination": "https://youtu.be/KNK1BNunDAQ",
+      "permanent": true
+    },
+    {
+      "source": "/v/organizations",
+      "destination": "https://youtu.be/Nz_i0JphBqQ",
+      "permanent": true
+    },
+    {
+      "source": "/v/catalyst",
+      "destination": "https://youtu.be/ZCHS0K7iUuU",
+      "permanent": true
+    },
+    {
+      "source": "/v/tokens",
+      "destination": "https://youtu.be/0jWz2bK2r4k",
+      "permanent": true
+    },
+    {
+      "source": "/v/wallets",
+      "destination": "https://youtu.be/ZgFWexuAes0",
+      "permanent": true
+    },
+    {
+      "source": "/v/nativetokens",
+      "destination": "https://youtu.be/3zU_eBjHzmw",
+      "permanent": true
+    },
+    {
+      "source": "/v/defi",
+      "destination": "https://youtu.be/68-T8jmCBTM",
+      "permanent": true
+    },
+    {
+      "source": "/v/smartcontracts",
+      "destination": "https://youtu.be/t3cNHRTQnrs",
+      "permanent": true
+    },
+    {
+      "source": "/v/marlowe",
+      "destination": "https://youtu.be/-4f0G7VvJpo",
+      "permanent": true
+    },
+    {
+      "source": "/v/funding",
+      "destination": "https://youtu.be/2w8vHkK_4EM",
+      "permanent": true
+    },
+    {
+      "source": "/v/data",
+      "destination": "https://youtu.be/2RKENpsEtLg",
+      "permanent": true
+    },
+    {
+      "source": "/v/ipnft",
+      "destination": "https://youtu.be/aMLSGOXlOpc",
+      "permanent": true
+    },
+    {
+      "source": "/v/supplychain",
+      "destination": "https://youtube.com", 
+      "permanent": true
+    },
+    {
+      "source": "/v/hydra",
+      "destination": "https://youtu.be/LLWUfDftpgc",
+      "permanent": true
+    },
+    {
+      "source": "/v/milkomeda",
+      "destination": "https://youtu.be/ofW0oCxbyw8",
+      "permanent": true
+    },
+    {
+      "source": "/v/wanchain",
+      "destination": "https://youtu.be/tGlcxZZQ-I4",
+      "permanent": true
+    },
+    {
+      "source": "/v/otherlanguages",
+      "destination": "https://youtu.be/KP66uDywAQQ",
+      "permanent": true
+    },
+    {
+      "source": "/v/recap",
+      "destination": "https://youtu.be/FOo7A55qVUM",
+      "permanent": true
+    }
+  ]
+}
