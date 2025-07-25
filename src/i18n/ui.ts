@@ -255,6 +255,16 @@ export const ui = {
     // Botones de redes sociales
     socialButtons: {
       telegramLabel: 'Unirse a nuestro grupo de Telegram'
+    },
+    
+    // Speakers
+    speakers: {
+      tag: 'SPEAKERS',
+      title: 'Nuestros Speakers',
+      subtitle: 'Conoce a los expertos que compartirán su conocimiento contigo',
+      viewProfile: 'Ver perfil completo',
+      viewAll: 'Ver todos los speakers',
+      navigation: 'Speakers'
     }
   },
   en: {
@@ -514,6 +524,16 @@ export const ui = {
     socialButtons: {
       telegramLabel: 'Unirse a nuestro grupo de Telegram',
       whatsappLabel: 'Join our WhatsApp group'
+    },
+    
+    // Speakers
+    speakers: {
+      tag: 'SPEAKERS',
+      title: 'Our Speakers',
+      subtitle: 'Meet the experts who will share their knowledge with you',
+      viewProfile: 'View full profile',
+      viewAll: 'View all speakers',
+      navigation: 'Speakers'
     }
   }
 };

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(pnpm run:*)",
+      "Bash(timeout 15 pnpm run dev)"
+    ],
+    "deny": []
+  }
+}
