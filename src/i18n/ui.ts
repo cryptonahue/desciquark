@@ -73,7 +73,7 @@ export const ui = {
         label: 'Contenido estructurado'
       },
       statTwo: {
-        value: 'A definir',
+        value: '19 horas',
         label: 'Horas de aprendizaje'
       },
       statThree: {
@@ -112,72 +112,113 @@ export const ui = {
       tag: 'PROGRAMA',
       title: 'Contenido del Curso',
       subtitle: 'Un viaje estructurado desde conceptos básicos hasta aplicaciones avanzadas',
-      module1: {
+      module0: {
         title: 'Bienvenida al Curso',
         description: 'Introducción general al curso, sus objetivos y metodología.',
-        lesson1: 'Lección 0.1: Introducción',
-        lesson2: 'Lección 0.2: Video de bienvenida',
-        lesson3: 'Lección 0.3: Visión general del curso',
-        lesson4: 'Lección 0.4: Materiales adicionales',
-        lesson5: 'Lección 0.5: Actividades interactivas'
+        lesson1: '0.1 Introducción',
+        lesson2: '0.2 Visión General del Curso',
+        lesson3: '0.3 Materiales Adicionales',
+        lesson4: '0.4 Actividad Interactiva (Quiz)'
       },
-      module2: {
+      module1: {
         title: 'Ciencia y sus Desafíos',
         description: 'Exploración de los desafíos actuales en investigación científica y cómo la tecnología blockchain puede abordarlos.',
-        lesson1: 'Lección 1.1: Qué es la Ciencia',
-        lesson2: 'Lección 1.2: Desafíos actuales en Ciencia',
-        lesson3: 'Lección 1.3: Financiación de investigación',
-        lesson4: 'Lección 1.4: Materiales adicionales',
-        lesson5: 'Lección 1.5: Actividades interactivas'
+        lesson1: '1.1 ¿Qué es la Ciencia?',
+        lesson2: '1.2.1 Financiación de Investigación',
+        lesson3: '1.2.2 Colaboración e Intercambio de Datos',
+        lesson4: '1.2.3 Propiedad Intelectual',
+        lesson5: '1.2.4 Publicaciones Científicas',
+        lesson6: '1.3 Ciencia Abierta',
+        lesson7: '1.4 Materiales Adicionales',
+        lesson8: '1.5 Actividad Interactiva (Quiz)'
       },
-      module3: {
+      module2: {
         title: 'Introducción a Blockchain y DeSci',
         description: 'Fundamentos de tecnología blockchain y el concepto de Ciencia Descentralizada.',
-        lesson1: 'Lección 2.1: Web Evolution & Blockchain Basics',
-        lesson2: 'Lección 2.2: DLT & Blockchain Fundamentals',
-        lesson3: 'Lección 2.3: ¿Qué es DeSci?',
-        lesson4: 'Lección 2.4: Materiales adicionales',
-        lesson5: 'Lección 2.5: Actividades interactivas'
+        lesson1: '2.1.1 Evolución Web',
+        lesson2: '2.1.2 Fundamentos DLT & Blockchain',
+        lesson3: '2.2 ¿Qué es DeSci?',
+        lesson4: '2.2.1 Panorama de DeSci y Ejemplos',
+        lesson5: '2.2.2 DeSci World – Carolina Menchaca, PhD',
+        lesson6: '2.2.3 Mushroom Protocol – Tomás Ortega',
+        lesson7: '2.2.5 Andamio-Syngenta – Sebastián Pabón',
+        lesson8: '2.2.6 ALBA – UTN – Jose Iadicicco',
+        lesson9: '2.2.7 DeScier – María Goreti Freitas',
+        lesson10: '2.2.8 Citaldoc – Jorg Nasanovsky',
+        lesson11: '2.2.9 DeSci vs TradSci: Desafíos y Cambios de Paradigma',
+        lesson12: '2.3 Materiales Adicionales',
+        lesson13: '2.4 Actividad Interactiva (Quiz)'
       },
-      module4: {
+      module3: {
         title: 'Generaciones Blockchain y Ecosistema Cardano',
         description: 'Evolución de la tecnología blockchain y características específicas de Cardano.',
-        lesson1: 'Lección 3.1: Generaciones Blockchain',
-        lesson2: 'Lección 3.2: El Ecosistema Cardano',
-        lesson3: 'Lección 3.3: Wallets',
-        lesson4: 'Lección 3.4: Materiales adicionales',
-        lesson5: 'Lección 3.5: Actividades interactivas'
+        lesson1: '3.1.1 Bitcoin: La Primera Generación',
+        lesson2: '3.1.2 Ethereum: La Segunda Generación',
+        lesson3: '3.1.3 Fases de Desarrollo y Eras',
+        lesson4: '3.1.4 ADA Lovelace',
+        lesson5: '3.1.5 Ouroboros Peras & Leios',
+        lesson6: '3.1.6 Stake Pools – Rodrigo Oyarzún',
+        lesson7: '3.1.7 Modelos Contables: UTXO, Basado en Cuentas y EUTXO',
+        lesson8: '3.2.1 Organizaciones Clave: IOG, CF, Emurgo',
+        lesson9: '3.2.2 CIP-1694 & Representantes Delegados (DReps)',
+        lesson10: '3.2.3 Intersect y la Comunidad – Daniela Alves',
+        lesson11: '3.2.4 Project Catalyst',
+        lesson12: '3.3.1 Tipos y Funciones de Billeteras',
+        lesson13: '3.3.2 Configuración de Billetera Cardano',
+        lesson14: '3.3.3 Uso de Billetera Testnet',
+        lesson15: '3.3.4 Delegación Mainnet',
+        lesson16: '3.4 Materiales Adicionales',
+        lesson17: '3.5 Actividad Interactiva (Quiz)'
       },
-      module5: {
+      module4: {
         title: 'Creación de Tokens',
         description: 'Aprende a crear diferentes tipos de tokens en la plataforma Cardano.',
-        lesson1: 'Lección 4.1: Tokens',
-        lesson2: 'Lección 4.2: Creando FTs en Cardano',
-        lesson3: 'Lección 4.3: Creando NFTs en Cardano',
-        lesson4: 'Lección 4.4: Materiales adicionales',
-        lesson5: 'Lección 4.5: Actividades interactivas'
+        lesson1: '4.1.1 ¿Qué es un Token? FT vs NFT',
+        lesson2: '4.1.2 Aplicaciones en Ciencia',
+        lesson3: '4.1.3 Tokens Nativos',
+        lesson4: '4.2.1 Tutorial de Creación de FT Científico',
+        lesson5: '4.2.2 DeFi en Cardano',
+        lesson6: '4.3.1 Metadatos NFT – CardanoTree – Ing. Hryb',
+        lesson7: '4.3.2 IP-NFT – Maria Fiorentini – MEC',
+        lesson8: '4.3.3 Tutorial de Creación de NFT',
+        lesson9: '4.4 Materiales Adicionales',
+        lesson10: '4.5 Actividad Interactiva (Quiz)'
       },
-      module6: {
+      module5: {
         title: 'Explorando Contratos Inteligentes con Marlowe',
         description: 'Introducción a los contratos inteligentes y su implementación con Marlowe en Cardano.',
-        lesson1: 'Lección 5.1: Conceptos Básicos de Contratos Inteligentes',
-        lesson2: 'Lección 5.2: ¿Qué es Marlowe?',
-        lesson3: 'Lección 5.3: Aplicaciones de Marlowe en Ciencia',
-        lesson4: 'Lección 5.4: Actividades interactivas'
+        lesson1: '5.1 Conceptos Básicos de Contratos Inteligentes',
+        lesson2: '5.2 ¿Qué es Marlowe?',
+        lesson3: '5.3.1 Financiación de Investigación y Gestión de Subvenciones',
+        lesson4: '5.3.2 Acuerdos de Colaboración e Intercambio de Datos',
+        lesson5: '5.3.3 Propiedad Intelectual y Regalías',
+        lesson6: '5.3.4 Trazabilidad de Cadena de Suministro',
+        lesson7: '5.3.5 Aprobación de Co-Autor',
+        lesson8: '5.4 Materiales Adicionales',
+        lesson9: '5.5 Actividad Interactiva (Quiz)'
       },
-      module7: {
+      module6: {
         title: 'Temas Avanzados en Cardano',
         description: 'Profundización en aspectos avanzados del ecosistema Cardano y su aplicación en ciencia.',
-        lesson1: 'Lección 6.1: Infraestructura y Escalabilidad en Cardano',
-        lesson2: 'Lección 6.2: Lenguajes de Programación en Cardano',
-        lesson3: 'Lección 6.3: Actividades interactivas'
+        lesson1: '6.1.1 Hydra',
+        lesson2: '6.1.2 Mithril',
+        lesson3: '6.1.3 Milkomeda',
+        lesson4: '6.1.4 Wanchain',
+        lesson5: '6.1.5 Demeter.run – Federico Weill',
+        lesson6: '6.1.6 Midnight – Agustín Franchella',
+        lesson7: '6.1.7 DeSci y ZK – Rather Labs',
+        lesson8: '6.2.1 Aiken – Ing. Hryb',
+        lesson9: '6.2.2 Helios & Opshin',
+        lesson10: '6.3 Materiales Adicionales',
+        lesson11: '6.4 Actividad Interactiva (Quiz)'
       },
-      module8: {
-        title: 'Evaluación Final',
+      module7: {
+        title: 'Cierre del Curso y Evaluación Final',
         description: 'Evaluación final y conclusión del curso.',
-        lesson1: 'Examen final',
-        lesson2: 'Conclusiones del curso',
-        lesson3: 'Próximos pasos'
+        lesson1: '7.1 Recapitulación y Conclusiones Clave',
+        lesson2: '7.2 Instrucciones del Examen Práctico Final',
+        lesson3: '7.3 Uniéndose a la Comunidad DeSci y Cardano',
+        lesson4: '7.4 Quiz Final'
       }
     },
     
@@ -193,7 +234,7 @@ export const ui = {
       },
       duration: {
         title: 'Duración',
-        value: 'A definir'
+        value: '19 horas'
       },
       audience: {
         title: 'Audiencia',
@@ -341,7 +382,7 @@ export const ui = {
         label: 'Structured content'
       },
       statTwo: {
-        value: 'To be defined',
+        value: '19 hours',
         label: 'Learning hours'
       },
       statThree: {
@@ -380,72 +421,113 @@ export const ui = {
       tag: 'CURRICULUM',
       title: 'Course Content',
       subtitle: 'A structured journey from basic concepts to advanced applications',
-      module1: {
+      module0: {
         title: 'Welcome to the Course',
         description: 'General introduction to the course, its objectives, and methodology.',
-        lesson1: 'Lesson 0.1: Introduction',
-        lesson2: 'Lesson 0.2: Welcome video',
-        lesson3: 'Lesson 0.3: Course overview',
-        lesson4: 'Lesson 0.4: Extra materials',
-        lesson5: 'Lesson 0.5: Interactive activities'
+        lesson1: '0.1 Introduction',
+        lesson2: '0.2 Course Overview',
+        lesson3: '0.3 Extra Material',
+        lesson4: '0.4 Interactive Activity (Quiz)'
+      },
+      module1: {
+        title: 'Science and Its Challenges',
+        description: 'Exploration of current challenges in scientific research and how blockchain technology can address them.',
+        lesson1: '1.1 What is Science?',
+        lesson2: '1.2.1 Research Funding',
+        lesson3: '1.2.2 Collaboration and Data Sharing',
+        lesson4: '1.2.3 Intellectual Property',
+        lesson5: '1.2.4 Scientific Publications',
+        lesson6: '1.3 Open Science',
+        lesson7: '1.4 Extra Material',
+        lesson8: '1.5 Interactive Activity (Quiz)'
       },
       module2: {
-        title: 'Science & Challenges',
-        description: 'Exploration of current challenges in scientific research and how blockchain technology can address them.',
-        lesson1: 'Lesson 1.1: What is Science',
-        lesson2: 'Lesson 1.2: Current Challenges in Science',
-        lesson3: 'Lesson 1.3: Research funding',
-        lesson4: 'Lesson 1.4: Extra materials',
-        lesson5: 'Lesson 1.5: Interactive activities'
-      },
-      module3: {
         title: 'Introduction to Blockchain and DeSci',
         description: 'Fundamentals of blockchain technology and the concept of Decentralized Science.',
-        lesson1: 'Lesson 2.1: Web Evolution & Blockchain Basics',
-        lesson2: 'Lesson 2.2: DLT & Blockchain Fundamentals',
-        lesson3: 'Lesson 2.3: What is DeSci?',
-        lesson4: 'Lesson 2.4: Extra materials',
-        lesson5: 'Lesson 2.5: Interactive activities'
+        lesson1: '2.1.1 Web Evolution',
+        lesson2: '2.1.2 DLT & Blockchain Fundamentals',
+        lesson3: '2.2 What is DeSci',
+        lesson4: '2.2.1 Landscape of DeSci and Examples',
+        lesson5: '2.2.2 DeSci World – Carolina Menchaca, PhD',
+        lesson6: '2.2.3 Mushroom Protocol – Tomás Ortega',
+        lesson7: '2.2.5 Andamio-Syngenta – Sebastián Pabón',
+        lesson8: '2.2.6 ALBA – UTN – Jose Iadicicco',
+        lesson9: '2.2.7 DeScier – María Goreti Freitas',
+        lesson10: '2.2.8 Citaldoc – Jorg Nasanovsky',
+        lesson11: '2.2.9 DeSci vs TradSci: Challenges and Paradigm Shifts',
+        lesson12: '2.3 Extra Material',
+        lesson13: '2.4 Interactive Activity (Quiz)'
       },
-      module4: {
+      module3: {
         title: 'Blockchain Generations and Cardano Ecosystem',
         description: 'Evolution of blockchain technology and specific features of Cardano.',
-        lesson1: 'Lesson 3.1: Blockchain Generations',
-        lesson2: 'Lesson 3.2: The Cardano Ecosystem',
-        lesson3: 'Lesson 3.3: Wallets',
-        lesson4: 'Lesson 3.4: Extra materials',
-        lesson5: 'Lesson 3.5: Interactive activities'
+        lesson1: '3.1.1 Bitcoin: The First Generation',
+        lesson2: '3.1.2 Ethereum: The Second Generation',
+        lesson3: '3.1.3 Development Phases and Eras',
+        lesson4: '3.1.4 ADA Lovelace',
+        lesson5: '3.1.5 Ouroboros Peras & Leios',
+        lesson6: '3.1.6 Stake Pools – Rodrigo Oyarzún',
+        lesson7: '3.1.7 Accounting Models: UTXO, Account-Based Model and EUTXO',
+        lesson8: '3.2.1 Key Organizations: IOG, CF, Emurgo',
+        lesson9: '3.2.2 CIP-1694 & Delegated Representatives (DReps)',
+        lesson10: '3.2.3 Intersect and the Community – Daniela Alves',
+        lesson11: '3.2.4 Project Catalyst',
+        lesson12: '3.3.1 Wallet Types and Functions',
+        lesson13: '3.3.2 Setting Up a Cardano Wallet',
+        lesson14: '3.3.3 Testnet Wallet Use',
+        lesson15: '3.3.4 Mainnet Delegation',
+        lesson16: '3.4 Extra Material',
+        lesson17: '3.5 Interactive Activity (Quiz)'
       },
-      module5: {
+      module4: {
         title: 'Token Creation',
         description: 'Learn to create different types of tokens on the Cardano platform.',
-        lesson1: 'Lesson 4.1: Tokens',
-        lesson2: 'Lesson 4.2: Creating FTs on Cardano',
-        lesson3: 'Lesson 4.3: Creating NFTs on Cardano',
-        lesson4: 'Lesson 4.4: Extra materials',
-        lesson5: 'Lesson 4.5: Interactive activities'
+        lesson1: '4.1.1 What is a Token? FT vs NFT',
+        lesson2: '4.1.2 Applications in Science',
+        lesson3: '4.1.3 Native Tokens',
+        lesson4: '4.2.1 Scientific FT Creation Tutorial',
+        lesson5: '4.2.2 DeFi on Cardano',
+        lesson6: '4.3.1 NFT Metadata – CardanoTree – Eng. Hryb',
+        lesson7: '4.3.2 IP-NFT – Maria Fiorentini – MEC',
+        lesson8: '4.3.3 NFT Creation Tutorial',
+        lesson9: '4.4 Extra Material',
+        lesson10: '4.5 Interactive Activity (Quiz)'
       },
-      module6: {
+      module5: {
         title: 'Exploring Marlowe Smart Contracts',
         description: 'Introduction to smart contracts and their implementation with Marlowe on Cardano.',
-        lesson1: 'Lesson 5.1: Smart Contracts Basics',
-        lesson2: 'Lesson 5.2: What is Marlowe?',
-        lesson3: 'Lesson 5.3: Real-World Applications of Marlowe in Science',
-        lesson4: 'Lesson 5.4: Interactive activities'
+        lesson1: '5.1 Smart Contracts Basics',
+        lesson2: '5.2 What is Marlowe?',
+        lesson3: '5.3.1 Research Funding and Grants Management',
+        lesson4: '5.3.2 Collaboration Agreements and Data Sharing',
+        lesson5: '5.3.3 Intellectual Property and Royalties',
+        lesson6: '5.3.4 Supply Chain Traceability',
+        lesson7: '5.3.5 Co-Author Approval',
+        lesson8: '5.4 Extra Material',
+        lesson9: '5.5 Interactive Activity (Quiz)'
       },
-      module7: {
+      module6: {
         title: 'Advanced Topics in Cardano',
         description: 'Deep dive into advanced aspects of the Cardano ecosystem and their application in science.',
-        lesson1: 'Lesson 6.1: Infrastructure and Scalability in Cardano',
-        lesson2: 'Lesson 6.2: Programming Languages in Cardano',
-        lesson3: 'Lesson 6.3: Interactive activities'
+        lesson1: '6.1.1 Hydra',
+        lesson2: '6.1.2 Mithril',
+        lesson3: '6.1.3 Milkomeda',
+        lesson4: '6.1.4 Wanchain',
+        lesson5: '6.1.5 Demeter.run – Federico Weill',
+        lesson6: '6.1.6 Midnight – Agustín Franchella',
+        lesson7: '6.1.7 DeSci and ZK – Rather Labs',
+        lesson8: '6.2.1 Aiken – Eng. Hryb',
+        lesson9: '6.2.2 Helios & Opshin',
+        lesson10: '6.3 Extra Material',
+        lesson11: '6.4 Interactive Activity (Quiz)'
       },
-      module8: {
-        title: 'Final Evaluation',
+      module7: {
+        title: 'Course Closing and Final Assessment',
         description: 'Final evaluation and course conclusion.',
-        lesson1: 'Final exam',
-        lesson2: 'Course conclusions',
-        lesson3: 'Next steps'
+        lesson1: '7.1 Recap and Key Conclusions',
+        lesson2: '7.2 Final Practical Exam Instructions',
+        lesson3: '7.3 Joining the DeSci and Cardano Community',
+        lesson4: '7.4 Final Quiz'
       }
     },
     
@@ -461,7 +543,7 @@ export const ui = {
       },
       duration: {
         title: 'Duration',
-        value: 'To be defined'
+        value: '19 hours'
       },
       audience: {
         title: 'Target Audience',

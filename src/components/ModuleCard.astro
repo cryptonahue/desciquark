@@ -6,58 +6,23 @@ interface ModuleCardProps {
   displayIndex: number; // Índice mostrado al usuario (empezando en 1)
   actualIndex: number;  // Índice real para numeración de lecciones (empezando en 0)
   isExpanded?: boolean;
+  lang?: string;
 }
 
-import LessonItem from './LessonItem.astro';
+import ModuleToggle from './ModuleToggle';
+import { getLangFromUrl } from '../i18n/utils';
 
 const { title, description, lessons, displayIndex, actualIndex, isExpanded = false } = Astro.props;
-const moduleId = `module-${actualIndex}`;
+const lang = getLangFromUrl(Astro.url);
 ---
 
-<div class="module-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
-  <div class="module-header p-6 flex justify-between items-center cursor-pointer" data-toggle={moduleId}>
-    <div>
-      <div class="flex items-center gap-3">
-        <span class="bg-primary-100 text-primary-700 px-2 py-0.5 rounded text-sm font-medium">Módulo {displayIndex}</span>
-        <h3 class="font-semibold text-lg text-gray-800">{title}</h3>
-      </div>
-      <p class="mt-2 text-gray-600 text-sm">{description}</p>
-    </div>
-    <div class="expand-icon transition-transform" data-icon={moduleId}>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
-    </div>
-  </div>
-  
-  <div class="module-content border-t border-gray-100 divide-y divide-gray-100 hidden" data-content={moduleId}>
-    {lessons.map((lesson, i) => (
-      <LessonItem 
-        title={lesson} 
-        number={`${actualIndex}.${i + 1}`} 
-      />
-    ))}
-  </div>
-</div>
-
-<script define:vars={{ moduleId: moduleId, isExpanded: isExpanded }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector(`[data-toggle="${moduleId}"]`);
-    const content = document.querySelector(`[data-content="${moduleId}"]`);
-    const icon = document.querySelector(`[data-icon="${moduleId}"]`);
-    
-    if (isExpanded && content) {
-      content.classList.remove('hidden');
-      if (icon) {
-        icon.classList.add('rotate-180');
-      }
-    }
-    
-    if (header && content && icon) {
-      header.addEventListener('click', () => {
-        content.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
-      });
-    }
-  });
-</script>
+<ModuleToggle 
+  title={title}
+  description={description}
+  lessons={lessons}
+  displayIndex={displayIndex}
+  actualIndex={actualIndex}
+  isExpanded={isExpanded}
+  lang={lang}
+  client:load
+/>

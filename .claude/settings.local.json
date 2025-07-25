@@ -3,7 +3,10 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(pnpm run:*)",
-      "Bash(timeout 15 pnpm run dev)"
+      "Bash(timeout 15 pnpm run dev)",
+      "Bash(npm run dev:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }

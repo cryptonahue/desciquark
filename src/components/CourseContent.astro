@@ -5,105 +5,82 @@ import ModuleCard from './ModuleCard.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Función para obtener todas las lecciones de un módulo dinámicamente
+function getModuleLessons(moduleKey: string) {
+  const lessons = [];
+  let lessonIndex = 1;
+  
+  while (true) {
+    const lessonKey = `courseContent.${moduleKey}.lesson${lessonIndex}`;
+    try {
+      const lesson = t(lessonKey);
+      if (lesson === lessonKey || !lesson) break; // Si no existe la traducción, salir del bucle
+      lessons.push(lesson);
+      lessonIndex++;
+    } catch {
+      break;
+    }
+  }
+  
+  return lessons;
+}
+
 // Preparar los datos para cada módulo con los títulos descriptivos y la numeración visible para el usuario
 const modules = [
   {
-    title: t('courseContent.module1.title'), // Bienvenida al Curso
-    description: t('courseContent.module1.description'),
-    lessons: [
-      t('courseContent.module1.lesson1'),
-      t('courseContent.module1.lesson2'),
-      t('courseContent.module1.lesson3'),
-      t('courseContent.module1.lesson4'),
-      t('courseContent.module1.lesson5')
-    ],
-    displayIndex: 1, // Mostrado como Módulo 1
+    title: t('courseContent.module0.title'), // Bienvenida al Curso
+    description: t('courseContent.module0.description'),
+    lessons: getModuleLessons('module0'),
+    displayIndex: 0, // Mostrado como Módulo 0
     actualIndex: 0   // Índice real para la numeración de lecciones
   },
   {
-    title: t('courseContent.module2.title'), // Ciencia y sus Desafíos
-    description: t('courseContent.module2.description'),
-    lessons: [
-      t('courseContent.module2.lesson1'),
-      t('courseContent.module2.lesson2'),
-      t('courseContent.module2.lesson3'),
-      t('courseContent.module2.lesson4'),
-      t('courseContent.module2.lesson5')
-    ],
-    displayIndex: 2,
+    title: t('courseContent.module1.title'), // Ciencia y sus Desafíos
+    description: t('courseContent.module1.description'),
+    lessons: getModuleLessons('module1'),
+    displayIndex: 1,
     actualIndex: 1
   },
   {
-    title: t('courseContent.module3.title'), // Introducción a Blockchain y DeSci
-    description: t('courseContent.module3.description'),
-    lessons: [
-      t('courseContent.module3.lesson1'),
-      t('courseContent.module3.lesson2'),
-      t('courseContent.module3.lesson3'),
-      t('courseContent.module3.lesson4'),
-      t('courseContent.module3.lesson5')
-    ],
-    displayIndex: 3,
+    title: t('courseContent.module2.title'), // Introducción a Blockchain y DeSci
+    description: t('courseContent.module2.description'),
+    lessons: getModuleLessons('module2'),
+    displayIndex: 2,
     actualIndex: 2
   },
   {
-    title: t('courseContent.module4.title'), // Generaciones Blockchain y Ecosistema Cardano
-    description: t('courseContent.module4.description'),
-    lessons: [
-      t('courseContent.module4.lesson1'),
-      t('courseContent.module4.lesson2'),
-      t('courseContent.module4.lesson3'),
-      t('courseContent.module4.lesson4'),
-      t('courseContent.module4.lesson5')
-    ],
-    displayIndex: 4,
+    title: t('courseContent.module3.title'), // Generaciones Blockchain y Ecosistema Cardano
+    description: t('courseContent.module3.description'),
+    lessons: getModuleLessons('module3'),
+    displayIndex: 3,
     actualIndex: 3
   },
   {
-    title: t('courseContent.module5.title'), // Creación de Tokens
-    description: t('courseContent.module5.description'),
-    lessons: [
-      t('courseContent.module5.lesson1'),
-      t('courseContent.module5.lesson2'),
-      t('courseContent.module5.lesson3'),
-      t('courseContent.module5.lesson4'),
-      t('courseContent.module5.lesson5')
-    ],
-    displayIndex: 5,
+    title: t('courseContent.module4.title'), // Creación de Tokens
+    description: t('courseContent.module4.description'),
+    lessons: getModuleLessons('module4'),
+    displayIndex: 4,
     actualIndex: 4
   },
   {
-    title: t('courseContent.module6.title'), // Explorando Contratos Inteligentes con Marlowe
-    description: t('courseContent.module6.description'),
-    lessons: [
-      t('courseContent.module6.lesson1'),
-      t('courseContent.module6.lesson2'),
-      t('courseContent.module6.lesson3'),
-      t('courseContent.module6.lesson4')
-    ],
-    displayIndex: 6,
+    title: t('courseContent.module5.title'), // Explorando Contratos Inteligentes con Marlowe
+    description: t('courseContent.module5.description'),
+    lessons: getModuleLessons('module5'),
+    displayIndex: 5,
     actualIndex: 5
   },
   {
-    title: t('courseContent.module7.title'), // Temas Avanzados en Cardano
-    description: t('courseContent.module7.description'),
-    lessons: [
-      t('courseContent.module7.lesson1'),
-      t('courseContent.module7.lesson2'),
-      t('courseContent.module7.lesson3')
-    ],
-    displayIndex: 7,
+    title: t('courseContent.module6.title'), // Temas Avanzados en Cardano
+    description: t('courseContent.module6.description'),
+    lessons: getModuleLessons('module6'),
+    displayIndex: 6,
     actualIndex: 6
   },
   {
-    title: t('courseContent.module8.title'), // Evaluación Final
-    description: t('courseContent.module8.description'),
-    lessons: [
-      t('courseContent.module8.lesson1'),
-      t('courseContent.module8.lesson2'),
-      t('courseContent.module8.lesson3')
-    ],
-    displayIndex: 8,
+    title: t('courseContent.module7.title'), // Cierre del Curso y Evaluación Final
+    description: t('courseContent.module7.description'),
+    lessons: getModuleLessons('module7'),
+    displayIndex: 7,
     actualIndex: 7
   }
 ];
@@ -117,7 +94,7 @@ const modules = [
       <p class="section-subtitle">{t('courseContent.subtitle')}</p>
     </div>
     
-    <div class="max-w-3xl mx-auto space-y-6">
+    <div class="max-w-3xl mx-auto">
       {modules.map((module, i) => (
         <ModuleCard 
           title={module.title}
