@@ -6,7 +6,9 @@
       "Bash(timeout 15 pnpm run dev)",
       "Bash(npm run dev:*)",
       "Bash(npm install:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(rm:*)",
+      "Bash(pnpm install:*)"
     ],
     "deny": []
   }
