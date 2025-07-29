@@ -66,13 +66,8 @@
       "permanent": true
     },
     {
-      "source": "/v/ipnft",
-      "destination": "https://youtu.be/aMLSGOXlOpc",
-      "permanent": true
-    },
-    {
       "source": "/v/supplychain",
-      "destination": "https://youtube.com", 
+      "destination": "https://youtu.be/gOqWPL2fzqQ",
       "permanent": true
     },
     {
@@ -98,6 +93,86 @@
     {
       "source": "/v/recap",
       "destination": "https://youtu.be/FOo7A55qVUM",
+      "permanent": true
+    },
+    {
+      "source": "/v/ada",
+      "destination": "https://youtu.be/gH2mRb7mY_Q",
+      "permanent": true
+    },
+    {
+      "source": "/v/peras-leios",
+      "destination": "https://youtu.be/ZRTvmV5dx5o",
+      "permanent": true
+    },
+    {
+      "source": "/v/citaldoc",
+      "destination": "https://youtu.be/n_Kp4TDPcsU",
+      "permanent": true
+    },
+    {
+      "source": "/v/mithril",
+      "destination": "https://youtu.be/2wUrgNCPCrw",
+      "permanent": true
+    },
+    {
+      "source": "/v/publications",
+      "destination": "https://youtu.be/ouvi6t7ifqI",
+      "permanent": true
+    },
+    {
+      "source": "/v/ratherlabs",
+      "destination": "https://youtu.be/Y8kFmUDmhCk",
+      "permanent": true
+    },
+    {
+      "source": "/v/welcome",
+      "destination": "https://youtu.be/aE14MKd2fUw",
+      "permanent": true
+    },
+    {
+      "source": "/v/webevolution",
+      "destination": "https://youtu.be/J1bE4xPr94w",
+      "permanent": true
+    },
+    {
+      "source": "/v/dlt",
+      "destination": "https://youtu.be/B4QasGzEuqE",
+      "permanent": true
+    },
+    {
+      "source": "/v/spo",
+      "destination": "https://youtu.be/hy2RxAW9XXE",
+      "permanent": true
+    },
+    {
+      "source": "/v/cip1694",
+      "destination": "https://youtu.be/xOlnj_dMIe4",
+      "permanent": true
+    },
+    {
+      "source": "/v/delegating-mainnet",
+      "destination": "https://youtu.be/VDB1UCy0jGk",
+      "permanent": true
+    },
+    {
+      "source": "/v/desciworld",
+      "destination": "https://youtu.be/fvYHPlH9u4s",
+      "permanent": true
+    },
+    {
+      "source": "/v/alba",
+      "destination": "https://youtu.be/NF2IX6_2ASQ",
+      "permanent": true
+    },
+    {
+      "source": "/v/ipnft",
+      "destination": "https://youtu.be/ThvMo-qO2oM",
+      "permanent": true
+    },
+    {
+      "source": "/v/descier",
+      "destination": "https://youtu.be/MLSLkN7q-hY",
       "permanent": true
     }
   ]
