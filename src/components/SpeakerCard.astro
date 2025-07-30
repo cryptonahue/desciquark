@@ -9,8 +9,7 @@ export interface Props {
       category: string;
       location: string;
       profileImage?: string;
-      bioEs: string;
-      bioEn: string;
+      experience: string;
     };
   };
   lang: 'es' | 'en';
@@ -62,13 +61,23 @@ const { data } = speaker;
       <p class="text-primary-600 font-semibold text-sm mb-2">
         {data.company}
       </p>
+
+      <!-- Company Logos -->
+      {data.companyImages && data.companyImages.length > 0 && (
+        <div class="flex items-center gap-2 mt-2 mb-3">
+          {data.companyImages.map(image => (
+            <img src={`/${image}`} alt={`${data.company} logo`} class="h-8 w-auto object-contain" />
+          ))}
+        </div>
+      )}
+
       <p class="text-gray-500 text-xs mb-3">
         {data.category}
       </p>
       
       <!-- Bio truncada -->
       <p class="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-3">
-        {lang === 'es' ? data.bioEs.slice(0, 120) + '...' : data.bioEn.slice(0, 120) + '...'}
+        {data.experience}
       </p>
       
       <!-- CTA -->

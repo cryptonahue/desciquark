@@ -9,7 +9,9 @@ let speakers = [];
 let sortedSpeakers = [];
 
 try {
-  speakers = await getCollection('speakers');
+  // Obtener speakers según el idioma actual
+  const speakersLang = lang === 'es' ? 'es' : 'en';
+  speakers = await getCollection('speakers', (entry) => entry.id.startsWith(`${speakersLang}/`));
   // Mostrar TODOS los speakers en la home
   sortedSpeakers = speakers.sort((a, b) => a.data.id - b.data.id);
 } catch (error) {
@@ -31,10 +33,10 @@ try {
     {sortedSpeakers.length > 0 ? (
       <>
         <!-- Speakers Grid -->
-        <div class="bento-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+        <div class="bento-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-10">
           {sortedSpeakers.map((speaker) => (
             <div class="bento-card group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <a href={`/${lang}/speakers/${speaker.slug}`} class="block">
+              <a href={`/${lang}/speakers/${speaker.id.replace(/^(es|en)\//, '').replace('.md', '')}`} class="block">
                 <!-- Imagen de perfil -->
                 <div class="relative mb-4">
                   <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-primary-500 to-blue-600 rounded-xl overflow-hidden">
@@ -81,7 +83,7 @@ try {
                   
                   <!-- Bio truncada -->
                   <p class="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-3">
-                    {lang === 'es' ? speaker.data.bioEs.slice(0, 120) + '...' : speaker.data.bioEn.slice(0, 120) + '...'}
+                    {speaker.data.experience}
                   </p>
                   
                   <!-- CTA -->

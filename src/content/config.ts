@@ -20,8 +20,7 @@ const speakers = defineCollection({
       youtube: z.string().optional(),
     }),
     profileImage: z.string().optional(),
-    bioEs: z.string(),
-    bioEn: z.string(),
+    companyImages: z.array(z.string()).optional(),
   }),
 });
 
