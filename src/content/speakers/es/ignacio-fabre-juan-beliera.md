@@ -15,7 +15,7 @@ socialLinks:
   website: "https://www.ratherlabs.com/"
   linkedin: "https://www.linkedin.com/in/ignaciofabre/"
   linkedin2: "https://www.linkedin.com/in/juan-beliera-b66427214/"
-profileImage: "ignacio-fabre-juan-beliera.jpg"
+profileImage: "ignacio-fabre.jpg"
 companyImages:
   - "images/companies/ratherlabs.png"
 ---
