@@ -1,154 +1,154 @@
 # 🧬 DeSci Quark
 
-**Plataforma educativa para "Blockchain Fundamentals and Advanced Tools for Scientists using Cardano"**
+**Educational platform for "Blockchain Fundamentals and Advanced Tools for Scientists using Cardano"**
 
-Una landing page moderna y multiidioma construida con Astro, diseñada para introducir a científicos y académicos al mundo de la ciencia descentralizada (DeSci) a través de blockchain y Cardano.
+A modern, multilingual landing page built with Astro, designed to introduce scientists and academics to the world of decentralized science (DeSci) through blockchain and Cardano technology.
 
-## ✨ Características
+## ✨ Features
 
-- 🌍 **Soporte multiidioma** - Español e Inglés completamente soportados
-- 📱 **Diseño responsive** - Optimizado para todos los dispositivos
-- 🎨 **Diseño moderno** - Estilo Bento con efectos Glassmorphism
-- 🎥 **Contenido multimedia** - Videos embebidos y galería de oradores
-- 📝 **Sistema de pre-registro** - Integración con formularios Tally
-- ⚡ **Rendimiento optimizado** - Construido con Astro para máxima velocidad
-- 🔍 **SEO optimizado** - Meta tags y estructura semántica
+- 🌍 **Multi-language support** - Full Spanish and English localization
+- 📱 **Responsive design** - Optimized for all devices and screen sizes
+- 🎨 **Modern design** - Bento-style layout with Glassmorphism effects
+- 🎥 **Multimedia content** - Embedded videos and speaker gallery
+- 📝 **Pre-registration system** - Integrated Tally forms
+- ⚡ **Optimized performance** - Built with Astro for maximum speed
+- 🔍 **SEO optimized** - Meta tags and semantic structure
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
 - **Framework**: [Astro](https://astro.build/) v5.7.3
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) v3.3.5
-- **Interactividad**: [React](https://react.dev/) v19.1.0
-- **Lenguaje**: TypeScript v5.8.3
-- **Gestión de paquetes**: PNPM
-- **Despliegue**: Vercel
+- **Interactivity**: [React](https://react.dev/) v19.1.0
+- **Language**: TypeScript v5.8.3
+- **Package Manager**: PNPM
+- **Deployment**: Vercel
 
-## 🚀 Inicio Rápido
+## 🚀 Quick Start
 
-### Prerrequisitos
+### Prerequisites
 
-- Node.js (v18 o superior)
-- PNPM (v8 o superior)
+- Node.js (v18 or higher)
+- PNPM (v8 or higher)
 
-### Instalación
+### Installation
 
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/yourusername/desciquark.git
 cd desciquark
 
-# Instalar dependencias
+# Install dependencies
 pnpm install
 
-# Iniciar servidor de desarrollo
+# Start development server
 pnpm dev
 ```
 
-Visita `http://localhost:4321` para ver el proyecto en desarrollo.
+Visit `http://localhost:4321` to view the project in development.
 
-### Scripts Disponibles
+### Available Scripts
 
 ```bash
-pnpm dev       # Inicia el servidor de desarrollo
-pnpm build     # Construye el proyecto para producción
-pnpm preview   # Previsualiza la build de producción
-pnpm start     # Alias para 'pnpm dev'
+pnpm dev       # Start development server
+pnpm build     # Build for production
+pnpm preview   # Preview production build
+pnpm start     # Alias for 'pnpm dev'
 ```
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 desciquark/
-├── public/                 # Archivos estáticos
-│   ├── icons/             # Iconos SVG
-│   ├── images/            # Imágenes y assets
-│   │   ├── companies/     # Logos de empresas colaboradoras
-│   │   └── speakers/      # Fotos de oradores
-│   └── speaker/           # Documentación de oradores
+├── public/                 # Static assets
+│   ├── icons/             # SVG icons
+│   ├── images/            # Images and assets
+│   │   ├── companies/     # Partner company logos
+│   │   └── speakers/      # Speaker photos
+│   └── speaker/           # Speaker documentation
 ├── src/
-│   ├── components/        # Componentes Astro y React
-│   │   ├── PreRegister/   # Componentes de pre-registro
-│   │   └── SocialMedia/   # Componentes de redes sociales
-│   ├── content/           # Contenido estructurado
-│   │   └── speakers/      # Perfiles de oradores (ES/EN)
-│   ├── i18n/             # Configuración de internacionalización
-│   ├── layouts/          # Layouts base
-│   ├── pages/            # Páginas del sitio
-│   │   ├── [lang]/       # Páginas dinámicas por idioma
-│   │   ├── en/           # Páginas en inglés
-│   │   └── es/           # Páginas en español
-│   └── styles/           # Estilos globales
-├── trash/                # Archivos temporales (ignorado por git)
-├── astro.config.mjs      # Configuración de Astro
-├── tailwind.config.mjs   # Configuración de Tailwind
-└── vercel.json          # Configuración de despliegue
+│   ├── components/        # Astro and React components
+│   │   ├── PreRegister/   # Pre-registration components
+│   │   └── SocialMedia/   # Social media components
+│   ├── content/           # Structured content
+│   │   └── speakers/      # Speaker profiles (ES/EN)
+│   ├── i18n/             # Internationalization config
+│   ├── layouts/          # Base layouts
+│   ├── pages/            # Site pages
+│   │   ├── [lang]/       # Dynamic language pages
+│   │   ├── en/           # English pages
+│   │   └── es/           # Spanish pages
+│   └── styles/           # Global styles
+├── trash/                # Temporary files (git ignored)
+├── astro.config.mjs      # Astro configuration
+├── tailwind.config.mjs   # Tailwind configuration
+└── vercel.json          # Deployment configuration
 ```
 
-## 🌍 Internacionalización
+## 🌍 Internationalization
 
-El proyecto soporta español (por defecto) e inglés:
+The project supports Spanish (default) and English:
 
-- **Español**: `/` (raíz)
-- **Inglés**: `/en/`
+- **Spanish**: `/` (root)
+- **English**: `/en/`
 
-Las traducciones se gestionan a través de:
-- `src/i18n/ui.ts` - Diccionario de traducciones
-- `src/i18n/utils.ts` - Utilidades de i18n
+Translations are managed through:
+- `src/i18n/ui.ts` - Translation dictionary
+- `src/i18n/utils.ts` - i18n utilities
 
-## 🎯 Funcionalidades Principales
+## 🎯 Key Features
 
 ### 🏠 Landing Page
-- Hero section con video promocional
-- Resumen del curso y objetivos
-- Contenido del curso con acordeones interactivos
-- Galería de oradores con perfiles detallados
-- Sección de comunidad y FAQ
-- Call-to-action para pre-registro
+- Hero section with promotional video
+- Course summary and objectives
+- Interactive course content with accordions
+- Speaker gallery with detailed profiles
+- Community section and FAQ
+- Call-to-action for pre-registration
 
-### 👥 Sistema de Oradores
-- Perfiles bilingües almacenados en `src/content/speakers/`
-- Imágenes optimizadas y responsive
-- Información detallada de cada orador
+### 👥 Speaker System
+- Bilingual profiles stored in `src/content/speakers/`
+- Optimized and responsive images
+- Detailed information for each speaker
 
-### 📝 Pre-registro
-- Formularios Tally integrados por idioma
-- Páginas dedicadas: `/pre-registro` y `/en/pre-registration`
-- Información de beneficios para early adopters
+### 📝 Pre-registration
+- Tally forms integrated by language
+- Dedicated pages: `/pre-registro` and `/en/pre-registration`
+- Early adopter benefits information
 
-## 🎨 Diseño y UI/UX
+## 🎨 Design & UI/UX
 
-- **Paleta de colores**: Gradientes modernos con tonos azules y morados
-- **Tipografía**: System fonts optimizadas para legibilidad
-- **Componentes**: Modulares y reutilizables
-- **Animaciones**: Transiciones suaves y micro-interacciones
-- **Accesibilidad**: Implementación de mejores prácticas
+- **Color palette**: Modern gradients with blue and purple tones
+- **Typography**: System fonts optimized for readability
+- **Components**: Modular and reusable architecture
+- **Animations**: Smooth transitions and micro-interactions
+- **Accessibility**: Best practices implementation
 
-## 🚀 Despliegue
+## 🚀 Deployment
 
-El proyecto está configurado para despliegue automático en Vercel:
+The project is configured for automatic deployment on Vercel:
 
 ```bash
-pnpm build  # Genera archivos optimizados en /dist
+pnpm build  # Generate optimized files in /dist
 ```
 
-La configuración de despliegue se encuentra en `vercel.json`.
+Deployment configuration is located in `vercel.json`.
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -m 'Añadir nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
-## 📧 Contacto
+## 📧 Contact
 
-Para preguntas sobre el curso o la plataforma, contáctanos a través de nuestros canales oficiales.
+For questions about the course or platform, contact us through our official channels.
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está licenciado bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ---
 
-**🧬 DeSci Quark** - Democratizando el acceso a la ciencia descentralizada a través de la educación blockchain.
+**🧬 DeSci Quark** - Democratizing access to decentralized science through blockchain education.
