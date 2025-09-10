@@ -13,12 +13,12 @@ const t = useTranslations(lang);
       </h2>
       <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
         {lang === 'en' 
-          ? 'Join our free course and learn how blockchain and Cardano can transform scientific research. Pre-register now to secure your spot!' 
-          : 'Únete a nuestro curso gratuito y aprende cómo blockchain y Cardano pueden transformar la investigación científica. ¡Pre-regístrate ahora para asegurar tu lugar!'}
+          ? 'Join our free course and learn how blockchain and Cardano can transform scientific research. Register now to secure your spot!' 
+          : 'Únete a nuestro curso gratuito y aprende cómo blockchain y Cardano pueden transformar la investigación científica. ¡Regístrate ahora para asegurar tu lugar!'}
       </p>
       
-      <a href={lang === 'es' ? '/es/pre-registro' : '/en/pre-registration'} class="btn bg-white text-primary-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-        {lang === 'en' ? 'Pre-register Now' : 'Pre-regístrate Ahora'}
+      <a href={lang === 'es' ? 'https://course.desciquark.com/es/registro/?ld_register_id=3586' : 'https://course.desciquark.com/register/?ld_register_id=2160'} class="btn bg-white text-primary-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        {lang === 'en' ? 'Register Now' : 'Regístrate Ahora'}
       </a>
     </div>
   </div>

@@ -19,7 +19,9 @@
       "Bash(move speakers-info-md.md trash)",
       "Bash(move:*)",
       "Bash(move traducciones.md trash)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(bun install:*)",
+      "Bash(bun add:*)"
     ],
     "deny": []
   }

@@ -15,7 +15,7 @@ export const ui = {
     hero: {
       title: 'Fundamentos de Blockchain y Herramientas Avanzadas para Científicos usando Cardano',
       description: 'Este curso está diseñado para introducir a científicos y académicos sin experiencia previa en blockchain al ecosistema de Ciencia Descentralizada (DeSci)',
-      registerBtn: 'Pre-registrarse',
+      registerBtn: 'Registrarse',
       learnMoreBtn: 'Conocer más'
     },
     
@@ -30,21 +30,21 @@ export const ui = {
       submitBtn: 'Registrarme'
     },
     
-    // Pre-registro página
+    // Registro página
     preRegister: {
-      pageTitle: 'Pre-registro - DeSci Quark',
-      pageDescription: 'Regístrate para ser uno de los primeros en acceder a nuestro curso gratuito de blockchain para científicos usando Cardano.',
-      heroTitle: 'Únete al Programa de Testers',
-      heroSubtitle: 'Sé parte de los primeros en explorar nuestro curso de blockchain para científicos',
-      heroDescription: 'Como tester, tendrás acceso anticipado al contenido, podrás dar feedback directo a nuestro equipo y recibirás reconocimiento especial por tu contribución.',
+      pageTitle: 'Registro - DeSci Quark',
+      pageDescription: 'Regístrate para acceder a nuestro curso gratuito de blockchain para científicos usando Cardano.',
+      heroTitle: 'Únete al Curso',
+      heroSubtitle: 'Explora nuestro curso de blockchain para científicos',
+      heroDescription: 'Accede al contenido completo del curso y únete a nuestra comunidad de científicos interesados en blockchain.',
       formTitle: 'Formulario de Registro',
-      formDescription: 'Completa la información para unirte a nuestro programa de beta testing',
+      formDescription: 'Completa la información para acceder al curso',
       loadingMessage: 'Cargando formulario...',
       benefits: {
-        title: 'Beneficios del Programa de Testers',
-        early: 'Acceso temprano al contenido',
-        feedback: 'Comunicación directa con el equipo',
-        recognition: 'Reconocimiento especial',
+        title: 'Beneficios del Curso',
+        early: 'Acceso completo al contenido',
+        feedback: 'Comunicación con la comunidad',
+        recognition: 'Certificado al completar',
         community: 'Acceso a comunidad exclusiva'
       }
     },
@@ -252,7 +252,7 @@ export const ui = {
         obj4: 'Crear proyectos simples en el ecosistema Cardano',
         obj5: 'Conectar con la comunidad DeSci'
       },
-      registerCta: 'Pre-registrarme ahora'
+      registerCta: 'Registrarme ahora'
     },
     
     // FAQ
@@ -324,13 +324,13 @@ export const ui = {
     hero: {
       title: 'Blockchain Fundamentals and Advanced Tools for Scientists using Cardano',
       description: 'This course is designed to introduce scientists and academics with no prior blockchain experience to the Decentralized Science (DeSci) ecosystem',
-      registerBtn: 'Pre-register',
+      registerBtn: 'Register',
       learnMoreBtn: 'Learn more'
     },
     
     // Registration Modal
     registerModal: {
-      title: 'Pre-register for the course',
+      title: 'Register for the course',
       description: 'Fill out the form below to be among the first to access this free course.',
       nameLabel: 'Full name',
       namePlaceholder: 'Enter your full name',
@@ -339,21 +339,21 @@ export const ui = {
       submitBtn: 'Register me'
     },
     
-    // Pre-registration page
+    // Registration page
     preRegister: {
-      pageTitle: 'Pre-registration - DeSci Quark',
-      pageDescription: 'Register to be one of the first to access our free blockchain course for scientists using Cardano.',
-      heroTitle: 'Join the Beta Testing Program',
-      heroSubtitle: 'Be among the first to explore our blockchain course for scientists',
-      heroDescription: 'As a beta tester, you\'ll get early access to content, provide direct feedback to our team, and receive special recognition for your contribution.',
+      pageTitle: 'Registration - DeSci Quark',
+      pageDescription: 'Register to access our free blockchain course for scientists using Cardano.',
+      heroTitle: 'Join the Course',
+      heroSubtitle: 'Explore our blockchain course for scientists',
+      heroDescription: 'Get full access to course content and join our community of scientists interested in blockchain.',
       formTitle: 'Registration Form',
-      formDescription: 'Complete the information to join our beta testing program',
+      formDescription: 'Complete the information to access the course',
       loadingMessage: 'Loading form...',
       benefits: {
-        title: 'Beta Testing Program Benefits',
-        early: 'Early access to content',
-        feedback: 'Direct communication with the team',
-        recognition: 'Special recognition',
+        title: 'Course Benefits',
+        early: 'Full access to content',
+        feedback: 'Community communication',
+        recognition: 'Certificate upon completion',
         community: 'Access to exclusive community'
       }
     },
@@ -561,7 +561,7 @@ export const ui = {
         obj4: 'Create simple projects in the Cardano ecosystem',
         obj5: 'Connect with the DeSci community'
       },
-      registerCta: 'Pre-register now'
+      registerCta: 'Register now'
     },
     
     // FAQ
@@ -604,7 +604,7 @@ export const ui = {
     
     // Social media buttons
     socialButtons: {
-      telegramLabel: 'Unirse a nuestro grupo de Telegram',
+      telegramLabel: 'Join our Telegram group',
       whatsappLabel: 'Join our WhatsApp group'
     },
     

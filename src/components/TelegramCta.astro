@@ -1,4 +1,6 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 interface Props {
   telegramUrl: string;
   label?: string;
@@ -6,10 +8,12 @@ interface Props {
   className?: string;
 }
 
-// El texto siempre estará en español, independientemente del idioma seleccionado
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const { 
   telegramUrl, 
-  label = "Unirse a nuestro grupo de Telegram", 
+  label = t('socialButtons.telegramLabel'), 
   size = 'md',
   className = ''
 } = Astro.props;

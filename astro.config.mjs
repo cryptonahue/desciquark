@@ -15,4 +15,8 @@ export default defineConfig({
   },
   // Configuración para SEO
   site: 'https://desciquark.com',
+  server: {
+    port: 3002,
+    host: true
+  }
 });

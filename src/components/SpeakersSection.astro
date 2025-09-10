@@ -25,30 +25,30 @@ try {
   <div class="container mx-auto px-4">
     <!-- Header -->
     <div class="text-center mb-12">
-      <span class="section-tag">{t('speakers.tag')}</span>
-      <h2 class="section-title">{t('speakers.title')}</h2>
-      <p class="section-subtitle">{t('speakers.subtitle')}</p>
+      <span class="fade-in section-tag">{t('speakers.tag')}</span>
+      <h2 class="fade-in section-title">{t('speakers.title')}</h2>
+      <p class="fade-in section-subtitle">{t('speakers.subtitle')}</p>
     </div>
 
     {sortedSpeakers.length > 0 ? (
       <>
         <!-- Speakers Grid -->
-        <div class="bento-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+        <div class="bento-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 2xl:grid-cols-5 mb-10">
           {sortedSpeakers.map((speaker) => (
-            <div class="bento-card group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+            <div class="scale-in bento-card group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
               <a href={`/${lang}/speakers/${speaker.id.replace(/^(es|en)\//, '').replace('.md', '')}`} class="block">
                 <!-- Imagen de perfil -->
                 <div class="relative mb-4">
-                  <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-primary-500 to-blue-600 rounded-xl overflow-hidden">
+                  <div class="aspect-square bg-gradient-to-br from-primary-500 to-blue-600 rounded-xl overflow-hidden">
                     {speaker.data.profileImage ? (
                       <img 
                         src={`/images/speakers/${speaker.data.profileImage}`} 
                         alt={speaker.data.name}
-                        class="w-full h-32 object-cover"
+                        class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-300 ease-out"
                         transition:name={`speaker-${speaker.data.id}`}
                       />
                     ) : (
-                      <div class="w-full h-32 flex items-center justify-center">
+                      <div class="w-full h-full flex items-center justify-center">
                         <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                           <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>

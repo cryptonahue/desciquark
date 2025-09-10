@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
         <LanguageSwitcher currentPath={currentPath} currentLang={lang} />
         
         <!-- Botón de login -->
-        <a href="#" class="btn btn-outline py-2 px-4">
+        <a href={lang === 'es' ? 'https://course.desciquark.com/courses/fundamentos-de-blockchain-y-herramientas-avanzadas-para-cientificos-usando-cardano/#login' : 'https://course.desciquark.com/courses/blockchain-fundamentals-and-advanced-tools-for-scientists-using-cardano/#login'} class="btn btn-outline py-2 px-4">
           {t('login')}
         </a>
       </div>

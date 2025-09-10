@@ -3,6 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import TelegramButton from '../components/TelegramButton.astro';
+import SmoothScroll from '../components/SmoothScroll.tsx';
+import GSAPAnimations from '../components/GSAPAnimations.tsx';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
@@ -65,6 +67,10 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     <Footer />
     
     <!-- Botón flotante de Telegram -->
-    <TelegramButton telegramUrl={telegramGroupUrl} label="Unirse a nuestro grupo de Telegram" />
+    <TelegramButton telegramUrl={telegramGroupUrl} />
+    
+    <!-- GSAP y Lenis components -->
+    <SmoothScroll client:load />
+    <GSAPAnimations client:load />
   </body>
 </html>

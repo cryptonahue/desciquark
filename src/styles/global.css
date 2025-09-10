@@ -178,3 +178,13 @@
 body.overflow-hidden {
   overflow: hidden;
 }
+
+/* Solucionar problema de scroll offset con header sticky */
+section[id] {
+  scroll-margin-top: 4rem; /* Espacio entre header sticky y contenido */
+}
+
+/* Smooth scrolling para toda la página */
+html {
+  scroll-behavior: smooth;
+}
