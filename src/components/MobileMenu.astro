@@ -41,7 +41,7 @@ const enPath = currentPath.startsWith('/en/')
   : '/en' + currentPath;
 ---
 
-<div id="mobile-menu" class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+<div id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-full bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col overflow-x-hidden" style="left: 100%;">
   <div class="flex items-center justify-between p-4 border-b">
     <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2">
       <img src="/images/logo-80.webp" alt="DeSci Quark" class="h-10" style="width: 3.5rem;" width="56" height="40" />
@@ -66,16 +66,44 @@ const enPath = currentPath.startsWith('/en/')
   </div>
   
   <div class="p-4 border-t">
-    <div class="grid grid-cols-2 gap-3">
-      <a href={lang === 'es' ? 'https://course.desciquark.com/courses/fundamentos-de-blockchain-y-herramientas-avanzadas-para-cientificos-usando-cardano/#login' : 'https://course.desciquark.com/courses/blockchain-fundamentals-and-advanced-tools-for-scientists-using-cardano/#login'} class="btn btn-outline py-2 px-4 text-center">
+    <div class="grid grid-cols-2 gap-3 w-full">
+      <a href={lang === 'es' ? 'https://course.desciquark.com/courses/fundamentos-de-blockchain-y-herramientas-avanzadas-para-cientificos-usando-cardano/#login' : 'https://course.desciquark.com/courses/blockchain-fundamentals-and-advanced-tools-for-scientists-using-cardano/#login'} class="btn btn-outline py-2 px-2 text-center text-sm whitespace-nowrap overflow-hidden">
         {t('login')}
       </a>
-      <a href={lang === 'es' ? 'https://course.desciquark.com/es/registro/?ld_register_id=3586' : 'https://course.desciquark.com/register/?ld_register_id=2160'} class="btn btn-primary py-2 px-4 text-center">
+      <a href={lang === 'es' ? 'https://course.desciquark.com/es/registro/?ld_register_id=3586' : 'https://course.desciquark.com/register/?ld_register_id=2160'} class="btn btn-primary py-2 px-2 text-center text-sm whitespace-nowrap overflow-hidden">
         {t('hero.registerBtn')}
       </a>
     </div>
   </div>
 </div>
+
+<style>
+  /* Prevenir scroll horizontal - menú completamente fuera del viewport */
+  #mobile-menu {
+    max-width: 100vw;
+    width: 100vw;
+    right: 0;
+  }
+  
+  /* Asegurar que los botones no causen overflow */
+  .btn {
+    min-width: 0;
+    max-width: 100%;
+  }
+  
+  /* Prevenir scroll horizontal global */
+  body.overflow-hidden {
+    overflow-x: hidden !important;
+    position: fixed;
+    width: 100%;
+  }
+  
+  /* Forzar que no haya scroll horizontal */
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+</style>
 
 <script>
   // Toggle mobile menu
@@ -87,8 +115,10 @@ const enPath = currentPath.startsWith('/en/')
     
     if (menuButton && mobileMenu && closeButton) {
       menuButton.addEventListener('click', () => {
+        mobileMenu.style.left = '0';
         mobileMenu.classList.remove('translate-x-full');
         document.body.classList.add('overflow-hidden');
+        document.documentElement.style.overflowX = 'hidden';
         
         // Ocultar botón de Telegram
         if (telegramButton) {
@@ -96,28 +126,26 @@ const enPath = currentPath.startsWith('/en/')
         }
       });
       
-      closeButton.addEventListener('click', () => {
+      const closeMenu = () => {
         mobileMenu.classList.add('translate-x-full');
+        setTimeout(() => {
+          mobileMenu.style.left = '100%';
+        }, 300); // Después de la animación
         document.body.classList.remove('overflow-hidden');
+        document.documentElement.style.overflowX = '';
         
         // Mostrar botón de Telegram
         if (telegramButton) {
           telegramButton.classList.remove('hidden');
         }
-      });
+      };
+      
+      closeButton.addEventListener('click', closeMenu);
       
       // Close menu when clicking on links
       const menuLinks = mobileMenu.querySelectorAll('a');
       menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('translate-x-full');
-          document.body.classList.remove('overflow-hidden');
-          
-          // Mostrar botón de Telegram
-          if (telegramButton) {
-            telegramButton.classList.remove('hidden');
-          }
-        });
+        link.addEventListener('click', closeMenu);
       });
     }
   });
