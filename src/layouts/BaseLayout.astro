@@ -18,6 +18,9 @@ const { title, description, image = '/images/og-image.jpg', lang } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentLang = lang || Astro.currentLocale || 'es';
 
+// Comprobar si estamos en homepage para thumbnail preload
+const isHomepage = Astro.url.pathname === '/' || Astro.url.pathname === '/es/' || Astro.url.pathname.endsWith('/index.html');
+
 // URL del grupo de Telegram
 const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
 ---
@@ -56,7 +59,7 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
-    <!-- Fuentes locales Work Sans -->
+    <!-- Preload fuentes críticas Work Sans -->
     <link rel="preload" href="/fonts/worksans-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/worksans-600.woff2" as="font" type="font/woff2" crossorigin>
     
@@ -65,8 +68,13 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     
     <!-- Preload crítico para recursos importantes -->
     <link rel="preload" href="/images/logo.svg" as="image" type="image/svg+xml">
-    <link rel="preload" href="/images/video-thumbnail-small.webp" as="image" type="image/webp">
-    <link rel="preload" href="/images/video-thumbnail-large.webp" as="image" type="image/webp" media="(min-width: 1024px)">
+    <!-- Solo preload thumbnail en home page donde es LCP -->
+    {isHomepage ? (
+      <>
+        <link rel="preload" href="/images/video-thumbnail-small.webp" as="image" type="image/webp">
+        <link rel="preload" href="/images/video-thumbnail-large.webp" as="image" type="image/webp" media="(min-width: 1024px)">
+      </>
+    ) : null}
     
     <!-- DNS Prefetch para recursos externos -->
     <link rel="dns-prefetch" href="//www.youtube.com">

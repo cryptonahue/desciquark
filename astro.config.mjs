@@ -18,5 +18,13 @@ export default defineConfig({
   server: {
     port: 3002,
     host: true
+  },
+  // Excluir rutas de archivos estáticos
+  vite: {
+    server: {
+      fs: {
+        strict: false
+      }
+    }
   }
 });

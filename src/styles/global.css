@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Work Sans Regular (400) */
+/* Work Sans Local Fonts - Optimized WOFF2 */
 @font-face {
   font-family: 'Work Sans';
   src: url('/fonts/worksans-400.woff2') format('woff2');
@@ -11,7 +11,6 @@
   font-display: swap;
 }
 
-/* Work Sans Medium (500) */
 @font-face {
   font-family: 'Work Sans';
   src: url('/fonts/worksans-500.woff2') format('woff2');
@@ -20,7 +19,6 @@
   font-display: swap;
 }
 
-/* Work Sans SemiBold (600) */
 @font-face {
   font-family: 'Work Sans';
   src: url('/fonts/worksans-600.woff2') format('woff2');
@@ -29,14 +27,14 @@
   font-display: swap;
 }
 
-/* Work Sans Bold (700) - usando 600 como fallback */
 @font-face {
   font-family: 'Work Sans';
-  src: url('/fonts/worksans-600.woff2') format('woff2');
+  src: url('/fonts/worksans-700.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
+
 
 @layer base {
   /* Variables CSS para glassmorphism */

@@ -21,7 +21,10 @@
       "Bash(move traducciones.md trash)",
       "Bash(mv:*)",
       "Bash(bun install:*)",
-      "Bash(bun add:*)"
+      "Bash(bun add:*)",
+      "Bash(powershell:*)",
+      "Bash(python -m fontTools.ttLib.woff2:*)",
+      "Bash(awk:*)"
     ],
     "deny": []
   }
