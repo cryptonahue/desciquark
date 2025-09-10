@@ -1,0 +1,29 @@
+---
+interface Props {
+  src: string; // Ruta sin extensión: "/images/speakers/nombre"
+  alt: string;
+  class?: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, class: className = "", width, height, loading = "lazy" } = Astro.props;
+
+// Generar rutas WebP y fallback
+const webpSrc = `${src}.webp`;
+const fallbackSrc = `${src}.jpg`; // Fallback por defecto a JPG
+---
+
+<picture>
+  <source srcset={webpSrc} type="image/webp" />
+  <img 
+    src={fallbackSrc}
+    alt={alt}
+    class={className}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+  />
+</picture>

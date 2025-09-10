@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
     <!-- Vista para móviles (<1024px) -->
     <div class="flex justify-between items-center lg:hidden">
       <!-- Logo -->
-      <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2">
+      <a href={lang === 'en' ? '/en/' : '/'} class="logo-link flex items-center gap-2">
         <img src="/images/logo.svg" alt="DeSci Quark" class="h-10" />
         <span class="text-xl font-bold text-primary-600">DeSci Quark</span>
       </a>
@@ -34,7 +34,7 @@ const currentPath = Astro.url.pathname;
     <!-- Vista para desktop (≥1024px) -->
     <div class="hidden lg:flex justify-between items-center">
       <!-- Logo -->
-      <a href={lang === 'en' ? '/en/' : '/'} class="flex items-center gap-2">
+      <a href={lang === 'en' ? '/en/' : '/'} class="logo-link flex items-center gap-2">
         <img src="/images/logo.svg" alt="DeSci Quark" class="h-10" />
         <span class="text-xl font-bold text-primary-600">DeSci Quark</span>
       </a>
@@ -73,3 +73,26 @@ const currentPath = Astro.url.pathname;
     @apply bg-primary-600 text-white hover:bg-primary-700;
   }
 </style>
+
+<script>
+  // Logo smooth scroll to top
+  document.addEventListener('DOMContentLoaded', () => {
+    const logoLinks = document.querySelectorAll('.logo-link');
+    
+    logoLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Solo si estamos en la misma página
+        const currentPath = window.location.pathname;
+        const linkPath = new URL(link.href, window.location.origin).pathname;
+        
+        if (currentPath === linkPath) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

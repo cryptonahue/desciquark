@@ -29,7 +29,15 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="blockchain, cardano, desci, científicos, curso gratuito, academia, web3" />
+    <meta name="author" content="DeSci Quark" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Hreflang tags para SEO internacional -->
+    <link rel="alternate" hreflang="es" href={new URL('/', Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -48,16 +56,16 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tally.so Embed Script -->
-    <script async src="https://tally.so/widgets/embed.js"></script>
+    <!-- Fuentes locales Work Sans -->
+    <link rel="preload" href="/fonts/worksans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/worksans-600.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- View Transitions -->
     <ViewTransitions />
+    
+    <!-- Preload crítico para recursos importantes -->
+    <link rel="preload" href="/images/logo.svg" as="image" type="image/svg+xml">
+    <link rel="dns-prefetch" href="//img.youtube.com">
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-800 antialiased">
     <Header />
@@ -69,8 +77,8 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     <!-- Botón flotante de Telegram -->
     <TelegramButton telegramUrl={telegramGroupUrl} />
     
-    <!-- GSAP y Lenis components -->
-    <SmoothScroll client:load />
-    <GSAPAnimations client:load />
+    <!-- GSAP y Lenis components - Carga diferida para mejor FCP -->
+    <SmoothScroll client:idle />
+    <GSAPAnimations client:idle />
   </body>
 </html>

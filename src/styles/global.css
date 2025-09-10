@@ -2,6 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Work Sans Regular (400) */
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/worksans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Work Sans Medium (500) */
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/worksans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Work Sans SemiBold (600) */
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/worksans-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Work Sans Bold (700) - usando 600 como fallback */
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/worksans-600.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   /* Variables CSS para glassmorphism */
   :root {
@@ -11,7 +47,7 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     overflow-x: hidden;
     background-color: #ffffff;
     color: #1a202c;

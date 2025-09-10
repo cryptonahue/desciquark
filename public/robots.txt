@@ -1,0 +1,22 @@
+# robots.txt para DeSci Quark
+User-agent: *
+Allow: /
+
+# Bloquear archivos técnicos
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /*.json$
+Disallow: /speaker/
+
+# Permitir acceso a archivos importantes
+Allow: /images/
+Allow: /icons/
+Allow: /fonts/
+
+# Sitemaps
+Sitemap: https://desciquark.com/sitemap.xml
+Sitemap: https://desciquark.com/sitemap-es.xml
+Sitemap: https://desciquark.com/sitemap-en.xml
+
+# Host (opcional pero recomendado)
+Host: https://desciquark.com

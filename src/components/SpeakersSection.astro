@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import OptimizedImage from './OptimizedImage.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -41,11 +42,11 @@ try {
                 <div class="relative mb-4">
                   <div class="aspect-square bg-gradient-to-br from-primary-500 to-blue-600 rounded-xl overflow-hidden">
                     {speaker.data.profileImage ? (
-                      <img 
-                        src={`/images/speakers/${speaker.data.profileImage}`} 
+                      <OptimizedImage
+                        src={`/images/speakers/${speaker.data.profileImage.replace(/\.(jpg|jpeg|png|webp)$/, '')}`}
                         alt={speaker.data.name}
                         class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-300 ease-out"
-                        transition:name={`speaker-${speaker.data.id}`}
+                        loading="lazy"
                       />
                     ) : (
                       <div class="w-full h-full flex items-center justify-center">

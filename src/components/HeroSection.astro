@@ -1,17 +1,15 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import VideoEmbed from './VideoEmbed.astro';
+import VideoThumbnail from './VideoThumbnail.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 // El video que quieres incluir
-const featuredVideoUrl = "https://youtu.be/aE14MKd2fUw";
-const featuredVideoTitle = "DeSci Quark Video";
+const featuredVideoId = "aE14MKd2fUw"; // Extraído del URL de YouTube
+const featuredVideoTitle = "DeSci Quark - Blockchain para Científicos";
 
-// Formulario de Tally según el idioma
-// Por ahora usamos el mismo formulario para ambos idiomas, pero puedes reemplazarlo después
-const tallyFormUrl = "https://tally.so/r/mRgoll?transparentBackground=1";
+// Ya no usamos Tally.so - formulario removido para optimización
 ---
 
 <section class="hero-section py-8 md:py-16">
@@ -34,10 +32,13 @@ const tallyFormUrl = "https://tally.so/r/mRgoll?transparentBackground=1";
         </div>
       </div>
       <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
-        <!-- Contenedor del video -->
+        <!-- Contenedor del video optimizado -->
         <div class="video-wrapper max-w-[600px] mx-auto">
           <div class="glass-card bg-white/20 border border-white/30 relative overflow-hidden rounded-xl shadow-xl">
-            <VideoEmbed url={featuredVideoUrl} title={featuredVideoTitle} />
+            <VideoThumbnail 
+              videoId={featuredVideoId} 
+              title={featuredVideoTitle}
+            />
           </div>
         </div>
       </div>

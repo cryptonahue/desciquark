@@ -1,4 +1,6 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+
 export interface Props {
   speaker: {
     id: number;
@@ -25,11 +27,11 @@ const { data } = speaker;
     <div class="relative mb-4">
       <div class="aspect-square bg-gradient-to-br from-primary-500 to-blue-600 rounded-xl overflow-hidden">
         {data.profileImage ? (
-          <img 
-            src={`/images/speakers/${data.profileImage}`} 
+          <OptimizedImage
+            src={`/images/speakers/${data.profileImage.replace(/\.(jpg|jpeg|png|webp)$/, '')}`}
             alt={data.name}
             class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-300 ease-out"
-            transition:name={`speaker-${speaker.id}`}
+            loading="lazy"
           />
         ) : (
           <div class="w-full h-full flex items-center justify-center">
