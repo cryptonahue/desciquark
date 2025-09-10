@@ -1,0 +1,180 @@
+---
+interface Props {
+  videoId: string;
+  title: string;
+  isLCP?: boolean; // Si es la imagen LCP (Largest Contentful Paint)
+}
+
+const { videoId, title, isLCP = false } = Astro.props;
+---
+
+<div id={`video-thumbnail-${videoId}`} class="video-thumbnail-container relative group cursor-pointer rounded-xl overflow-hidden shadow-xl">
+  <!-- Responsive picture optimizado -->
+  <picture>
+    <!-- WebP para pantallas grandes (desktop) -->
+    <source 
+      media="(min-width: 1024px)" 
+      srcset="/images/video-thumbnail-large.webp" 
+      type="image/webp"
+    />
+    <!-- WebP para pantallas medianas (tablet) -->
+    <source 
+      media="(min-width: 768px)" 
+      srcset="/images/video-thumbnail-medium.webp" 
+      type="image/webp"
+    />
+    <!-- WebP para pantallas pequeñas (mobile) -->
+    <source 
+      srcset="/images/video-thumbnail-small.webp" 
+      type="image/webp"
+    />
+    <!-- Fallback JPG -->
+    <img 
+      src="/images/video-thumbnail-small.jpg"
+      alt={title}
+      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      loading={isLCP ? "eager" : "lazy"}
+      fetchpriority={isLCP ? "high" : "auto"}
+      width="380"
+      height="214"
+      decoding="async"
+    />
+  </picture>
+  
+  <!-- Overlay oscuro -->
+  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
+  
+  <!-- Botón de play -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="play-button bg-white/90 backdrop-blur-sm rounded-full p-6 group-hover:bg-white group-hover:scale-110 transition-all duration-300 shadow-2xl">
+      <svg class="w-8 h-8 text-primary-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ videoId, title }}>
+  // Video thumbnail modal functionality - Optimized for performance
+  const initVideoModal = () => {
+    const thumbnail = document.getElementById(`video-thumbnail-${videoId}`);
+    
+    if (!thumbnail) {
+      console.error('Thumbnail not found:', `video-thumbnail-${videoId}`);
+      return;
+    }
+    
+    console.log('Video thumbnail setup complete for:', videoId);
+    
+    // Crear modal dinámicamente
+    const createModal = () => {
+      // Verificar si ya existe
+      if (document.getElementById(`video-modal-${videoId}`)) return;
+      
+      const modal = document.createElement('div');
+      modal.id = `video-modal-${videoId}`;
+      modal.className = 'fixed inset-0 z-50 bg-black/95 backdrop-blur-sm hidden items-center justify-center p-4';
+      modal.style.backdropFilter = 'blur(8px)';
+      
+      modal.innerHTML = `
+        <button class="close-modal absolute top-4 right-4 z-60 text-white hover:text-gray-300 transition-colors" aria-label="Cerrar video">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+        <div class="video-container-modal max-w-6xl w-full relative">
+          <div class="aspect-video bg-black rounded-lg overflow-hidden">
+            <!-- El iframe se inyecta aquí dinámicamente -->
+          </div>
+        </div>
+      `;
+      
+      // Agregar al body
+      document.body.appendChild(modal);
+      return modal;
+    };
+    
+    // Abrir modal
+    thumbnail.addEventListener('click', () => {
+      console.log('Thumbnail clicked, opening modal');
+      
+      // Crear modal si no existe
+      const modal = createModal() || document.getElementById(`video-modal-${videoId}`);
+      const closeBtn = modal.querySelector('.close-modal');
+      const videoContainer = modal.querySelector('.video-container-modal .aspect-video');
+      
+      if (!modal || !closeBtn || !videoContainer) {
+        console.error('Failed to create or find modal elements');
+        return;
+      }
+      
+      // Crear iframe del video
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.className = 'w-full h-full';
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      
+      // Limpiar contenedor y agregar iframe
+      videoContainer.innerHTML = '';
+      videoContainer.appendChild(iframe);
+      
+      // Mostrar modal
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      
+      // Configurar eventos de cierre
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+        videoContainer.innerHTML = '';
+      };
+      
+      // Cerrar con botón X
+      closeBtn.onclick = closeModal;
+      
+      // Cerrar clicando fuera del video
+      modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+      };
+      
+      // Cerrar con ESC
+      const handleEsc = (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModal();
+          document.removeEventListener('keydown', handleEsc);
+        }
+      };
+      document.addEventListener('keydown', handleEsc);
+    });
+  };
+
+  // Use intersection observer for lazy initialization
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          initVideoModal();
+          observer.disconnect();
+        }
+      });
+    }, { rootMargin: '50px' });
+    
+    const thumbnail = document.getElementById(`video-thumbnail-${videoId}`);
+    if (thumbnail) {
+      observer.observe(thumbnail);
+    }
+  } else {
+    // Fallback for older browsers
+    document.addEventListener('DOMContentLoaded', initVideoModal);
+  }
+</script>
+
+<style>
+  .play-button {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+</style>

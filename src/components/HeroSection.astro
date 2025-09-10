@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import VideoThumbnail from './VideoThumbnail.astro';
+import OptimizedVideoThumbnail from './OptimizedVideoThumbnail.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -35,9 +35,10 @@ const featuredVideoTitle = "DeSci Quark - Blockchain para Científicos";
         <!-- Contenedor del video optimizado -->
         <div class="video-wrapper max-w-[600px] mx-auto">
           <div class="glass-card bg-white/20 border border-white/30 relative overflow-hidden rounded-xl shadow-xl">
-            <VideoThumbnail 
+            <OptimizedVideoThumbnail 
               videoId={featuredVideoId} 
               title={featuredVideoTitle}
+              isLCP={true}
             />
           </div>
         </div>

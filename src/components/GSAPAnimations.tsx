@@ -1,11 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// Registrar plugin
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function GSAPAnimations() {
   const animationsInitialized = useRef(false);
@@ -13,6 +6,19 @@ export default function GSAPAnimations() {
   useEffect(() => {
     if (animationsInitialized.current) return;
     animationsInitialized.current = true;
+
+    // Lazy load GSAP only when needed
+    const loadGSAP = async () => {
+      const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger')
+      ]);
+      
+      gsap.registerPlugin(ScrollTrigger);
+      return { gsap, ScrollTrigger };
+    };
+
+    loadGSAP().then(({ gsap, ScrollTrigger }) => {
 
     // Animación fade-in para elementos con clase .fade-in
     gsap.fromTo('.fade-in', 
@@ -109,10 +115,13 @@ export default function GSAPAnimations() {
         '-=0.3'
       );
 
-    // Cleanup
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+      // Cleanup
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }).catch(error => {
+      console.warn('Failed to load GSAP animations:', error);
+    });
   }, []);
 
   return null;

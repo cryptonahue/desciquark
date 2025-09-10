@@ -65,7 +65,13 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     
     <!-- Preload crítico para recursos importantes -->
     <link rel="preload" href="/images/logo.svg" as="image" type="image/svg+xml">
-    <link rel="dns-prefetch" href="//img.youtube.com">
+    <link rel="preload" href="/images/video-thumbnail-small.webp" as="image" type="image/webp">
+    <link rel="preload" href="/images/video-thumbnail-large.webp" as="image" type="image/webp" media="(min-width: 1024px)">
+    
+    <!-- DNS Prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//www.youtube.com">
+    <link rel="dns-prefetch" href="//i.ytimg.com">
+    <link rel="preconnect" href="https://www.youtube.com" crossorigin>
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-800 antialiased">
     <Header />
@@ -78,7 +84,7 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     <TelegramButton telegramUrl={telegramGroupUrl} />
     
     <!-- GSAP y Lenis components - Carga diferida para mejor FCP -->
-    <SmoothScroll client:idle />
-    <GSAPAnimations client:idle />
+    <SmoothScroll client:visible />
+    <GSAPAnimations client:visible />
   </body>
 </html>
