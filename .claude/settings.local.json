@@ -24,7 +24,8 @@
       "Bash(bun add:*)",
       "Bash(powershell:*)",
       "Bash(python -m fontTools.ttLib.woff2:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(node:*)"
     ],
     "deny": []
   }

@@ -70,10 +70,7 @@ const telegramGroupUrl = "https://t.me/+8SHfRTRot9dmZTQx";
     <link rel="preload" href="/images/logo.svg" as="image" type="image/svg+xml">
     <!-- Solo preload thumbnail en home page donde es LCP -->
     {isHomepage ? (
-      <>
-        <link rel="preload" href="/images/video-thumbnail-small.webp" as="image" type="image/webp">
-        <link rel="preload" href="/images/video-thumbnail-large.webp" as="image" type="image/webp" media="(min-width: 1024px)">
-      </>
+      <link rel="preload" href="/images/video-thumbnail.webp" as="image" type="image/webp">
     ) : null}
     
     <!-- DNS Prefetch para recursos externos -->
