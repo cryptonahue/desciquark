@@ -17,7 +17,7 @@ socialLinks:
   linkedin: "https://www.linkedin.com/company/andamio-platform"
   website: "https://www.andamio.io/"
 profileImage: "sebastian-pabon.jpeg"
-companyLogo: "andamio-logo.webp"
+companyLogo: "images/companies/andamio-logo.webp"
 ---
 
 **El mundo es un lugar mejor cuando actuamos como grupo.**

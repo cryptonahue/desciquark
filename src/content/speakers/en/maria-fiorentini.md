@@ -17,6 +17,8 @@ socialLinks:
   twitter: "https://x.com/MariaFiorenti"
   instagram: "https://instagram.com/meryfiorentini"
 profileImage: "maria-fiorentini.png"
+companyImages:
+  - "images/companies/mujeres-en-crypto.png"
 ---
 
 **Maria Fiorentini** is a law student at Universidad Austral, passionate about the intersection of technology and law. She works as a Legal Intern at **Lawi**. She is the co-founder of **"Mujeres en Derecho"** and Project Manager at **"Mujeres en Crypto"** and has actively worked on the education and participation of women in the Web3 ecosystem.
