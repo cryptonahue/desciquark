@@ -1,6 +1,6 @@
 ---
 id: 14
-name: "Ortega"
+name: "Tomas Ortega"
 company: "Mushroom Protocol"
 category: "Biotech Investment & Tokenization"
 location: "Latin America"
@@ -20,12 +20,10 @@ companyImages:
   - "images/companies/mushroom.jpeg"
 ---
 
-**Ortega** is a team member at **Mushroom Protocol**, a platform that democratizes biotech investment in Latin America. For the past 20 years, investment in R&D—especially in biotechnology—has remained stagnant in Latin America, and Mushroom Protocol is breaking down these barriers.
+**Tomas Ortega** is a team member at **Mushroom Protocol**, a platform that democratizes biotech investment in Latin America. For the past 20 years, investment in R&D—especially in biotechnology—has remained stagnant in Latin America, and Mushroom Protocol is breaking down these barriers.
 
 The platform uses blockchain to tokenize two key asset classes:
 - **Intellectual Property** from early-stage research
 - **Equity** in biotech startups
 
 This allows investors worldwide to participate in the ownership of cutting-edge biotechnologies from their earliest stages, transforming the industry by providing affordable, simple, and liquid access to biotech opportunities.
-
-*Detailed information about Ortega will be added soon.*
